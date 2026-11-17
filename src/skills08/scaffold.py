@@ -122,3 +122,4 @@ skills08 inspect {name}
 
         except Exception as e:
             return False, f"Failed to scaffold skill: {e}", skill_dir
+

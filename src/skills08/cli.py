@@ -171,7 +171,13 @@ def cmd_search(args, installer: Installer) -> int:
 def cmd_install(args, installer: Installer) -> int:
     success, msg = installer.install(args.identifier, scope=args.scope, force=args.force)
     if success:
-        print(f"\n[OK] {msg}\n")
+        print(f"\n[OK] {msg}")
+        if args.scope == "project" and getattr(args, "sync", False):
+            agents_arg = getattr(args, "agents", None)
+            agent_list = [a.strip() for a in agents_arg.split(",")] if agents_arg else None
+            _, sync_msg, _ = AgentConfigManager.sync_all_agents(installer.workspace_root, agents=agent_list)
+            print(f"[SYNC] {sync_msg}")
+        print()
         return EXIT_SUCCESS
     else:
         print(f"\n[FAILED] {msg}\n", file=sys.stderr)
@@ -180,7 +186,13 @@ def cmd_install(args, installer: Installer) -> int:
 def cmd_uninstall(args, installer: Installer) -> int:
     success, msg = installer.uninstall(args.name, scope=args.scope)
     if success:
-        print(f"\n[OK] {msg}\n")
+        print(f"\n[OK] {msg}")
+        if args.scope == "project" and getattr(args, "sync", False):
+            agents_arg = getattr(args, "agents", None)
+            agent_list = [a.strip() for a in agents_arg.split(",")] if agents_arg else None
+            _, sync_msg, _ = AgentConfigManager.sync_all_agents(installer.workspace_root, agents=agent_list)
+            print(f"[SYNC] {sync_msg}")
+        print()
         return EXIT_SUCCESS
     else:
         print(f"\n[FAILED] {msg}\n", file=sys.stderr)
@@ -436,17 +448,51 @@ def cmd_doctor(args, installer: Installer) -> int:
 
 def cmd_agent_init(args, installer: Installer) -> int:
     target_ws = Path(args.target).resolve() if getattr(args, "target", None) else installer.workspace_root
-    success, msg, data = AgentConfigManager.init_workspace(target_ws)
+    agents_arg = getattr(args, "agents", None)
+    agent_list = [a.strip() for a in agents_arg.split(",")] if agents_arg else None
+
+    success, msg, data = AgentConfigManager.init_workspace(target_ws, agents=agent_list)
+
+    if success:
+        AgentConfigManager.sync_all_agents(target_ws, agents=agent_list)
 
     if getattr(args, "json", False):
         print(json.dumps({"success": success, "message": msg, "data": data}, indent=2))
         return EXIT_SUCCESS if success else EXIT_ERROR
 
     if success:
-        print(f"\n[OK] {msg}")
-        print(f"Skills Root:   {data.get('skills_directory')}")
-        print(f"Config File:   {data.get('config_file')}")
-        print("Your coding agents (Antigravity, Claude Code, Cursor, Gemini CLI) are ready to index skills.\n")
+        print(f"\n=== Skills08 Universal Agent Initialization ===\n")
+        print(f"[OK] {msg}")
+        print(f"Target Workspace: {data.get('workspace_root')}")
+        print("Initialized Support for Coding Agents:")
+        for ag in data.get("agents_initialized", []):
+            print(f"  - {ag}")
+        print("\nYour workspace is now equipped for every AI coding agent.\n")
+        return EXIT_SUCCESS
+    else:
+        print(f"\n[FAILED] {msg}\n", file=sys.stderr)
+        return EXIT_ERROR
+
+def cmd_sync(args, installer: Installer) -> int:
+    target_ws = installer.workspace_root
+    agents_arg = getattr(args, "agents", None)
+    agent_list = [a.strip() for a in agents_arg.split(",")] if agents_arg else None
+
+    success, msg, data = AgentConfigManager.sync_all_agents(target_ws, agents=agent_list)
+
+    if getattr(args, "json", False):
+        print(json.dumps({"success": success, "message": msg, "data": data}, indent=2))
+        return EXIT_SUCCESS if success else EXIT_ERROR
+
+    if success:
+        print(f"\n=== Skills08 Multi-Agent Sync ===\n")
+        print(f"[OK] {msg}")
+        print(f"Workspace: {data.get('workspace_root')}")
+        print(f"Active Skills: {data.get('installed_skills_count')}\n")
+        print("Agent Projections Updated:")
+        for ag, cnt in data.get("synced_counts", {}).items():
+            print(f"  - {ag:<15}: {cnt} skill(s) synced")
+        print("\nAll coding agents (Antigravity, Cursor, Claude Code, Copilot, Windsurf, Cline, Gemini) are now in sync!\n")
         return EXIT_SUCCESS
     else:
         print(f"\n[FAILED] {msg}\n", file=sys.stderr)
@@ -494,11 +540,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_install.add_argument("identifier", help="Candidate ID or skill name")
     p_install.add_argument("--scope", choices=["project", "global"], default="project", help="Target installation scope")
     p_install.add_argument("--force", "-f", action="store_true", help="Force overwrite existing installation")
+    p_install.add_argument("--sync", "-s", action="store_true", help="Automatically sync installed skill to all coding agents")
+    p_install.add_argument("--agents", "-a", help="Comma-separated agents to sync (e.g. cursor,claude,copilot)")
 
     # uninstall
     p_uninstall = subparsers.add_parser("uninstall", parents=[common_parent], help="Uninstall a skill package")
     p_uninstall.add_argument("name", help="Installed skill name")
     p_uninstall.add_argument("--scope", choices=["project", "global"], default="project", help="Target scope")
+    p_uninstall.add_argument("--sync", "-s", action="store_true", help="Automatically sync change to all coding agents")
+    p_uninstall.add_argument("--agents", "-a", help="Comma-separated agents to sync")
 
     # update
     p_update = subparsers.add_parser("update", parents=[common_parent], help="Update installed skill(s) from catalog")
@@ -522,6 +572,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_verify.add_argument("--verbose", "-V", action="store_true", help="Show all verified file paths")
     p_verify.add_argument("--json", action="store_true", help="Output in JSON format")
 
+    # sync
+    p_sync = subparsers.add_parser("sync", parents=[common_parent], help="Synchronize active skills across all coding agents")
+    p_sync.add_argument("--agents", "-a", help="Comma-separated target agents (default: all)")
+    p_sync.add_argument("--json", action="store_true", help="Output in JSON format")
+
     # new / init-skill
     p_new = subparsers.add_parser("new", parents=[common_parent], help="Scaffold a new custom agent skill")
     p_new.add_argument("name", help="Skill name in lowercase kebab-case (e.g. data-analyzer)")
@@ -543,8 +598,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_doctor.add_argument("--json", action="store_true", help="Output diagnostic report in JSON format")
 
     # agent-init
-    p_agent_init = subparsers.add_parser("agent-init", parents=[common_parent], help="Initialize workspace with .agents discovery layout")
+    p_agent_init = subparsers.add_parser("agent-init", parents=[common_parent], help="Initialize workspace with multi-agent discovery layout")
     p_agent_init.add_argument("--target", "-t", help="Target workspace directory (defaults to workspace root)")
+    p_agent_init.add_argument("--agents", "-a", help="Comma-separated agents to initialize (default: all)")
     p_agent_init.add_argument("--json", action="store_true", help="Output in JSON format")
 
     return parser
@@ -580,6 +636,8 @@ def main(args=None) -> int:
         return cmd_conflicts(parsed, installer)
     elif parsed.command == "verify":
         return cmd_verify(parsed, installer)
+    elif parsed.command == "sync":
+        return cmd_sync(parsed, installer)
     elif parsed.command == "new":
         return cmd_new(parsed, installer)
     elif parsed.command == "pack":

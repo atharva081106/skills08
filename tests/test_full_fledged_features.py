@@ -233,5 +233,69 @@ class TestFullFledgedFeatures(unittest.TestCase):
         self.assertIsInstance(data, list)
         self.assertEqual(len(data), 13)
 
+    def test_multi_agent_sync_projection(self):
+        """Verify sync projects skills to Cursor, Claude, Copilot, Windsurf, Cline, and Gemini."""
+        self.installer.install("humanizer", scope="project")
+        success, msg, data = AgentConfigManager.sync_all_agents(self.workspace)
+        self.assertTrue(success, f"Sync failed: {msg}")
+
+        # 1. Cursor .mdc rule
+        cursor_mdc = self.workspace / ".cursor" / "rules" / "humanizer.mdc"
+        self.assertTrue(cursor_mdc.exists())
+        self.assertIn("description:", cursor_mdc.read_text(encoding="utf-8"))
+
+        # 2. Claude Code mirror & CLAUDE.md
+        claude_skill = self.workspace / ".claude" / "skills" / "humanizer" / "SKILL.md"
+        self.assertTrue(claude_skill.exists())
+        claude_md = self.workspace / "CLAUDE.md"
+        self.assertTrue(claude_md.exists())
+        self.assertIn("BEGIN SKILLS08 MANAGED BLOCK", claude_md.read_text(encoding="utf-8"))
+
+        # 3. GitHub Copilot
+        copilot_file = self.workspace / ".github" / "copilot-instructions.md"
+        self.assertTrue(copilot_file.exists())
+        self.assertIn("BEGIN SKILLS08 MANAGED BLOCK", copilot_file.read_text(encoding="utf-8"))
+
+        # 4. Windsurf
+        windsurf_file = self.workspace / ".windsurfrules"
+        self.assertTrue(windsurf_file.exists())
+
+        # 5. Cline / Roo Code
+        cline_file = self.workspace / ".clinerules"
+        self.assertTrue(cline_file.exists())
+
+        # 6. Gemini & Universal AGENTS.md
+        self.assertTrue((self.workspace / "GEMINI.md").exists())
+        self.assertTrue((self.workspace / "AGENTS.md").exists())
+
+    def test_multi_agent_sync_preserves_user_rules(self):
+        """Verify sync updates only managed block and preserves custom user instructions."""
+        claude_md = self.workspace / "CLAUDE.md"
+        claude_md.write_text("# Custom Developer Rule\n- Do not break the build\n", encoding="utf-8")
+
+        self.installer.install("humanizer", scope="project")
+        AgentConfigManager.sync_all_agents(self.workspace)
+
+        content = claude_md.read_text(encoding="utf-8")
+        self.assertIn("# Custom Developer Rule", content)
+        self.assertIn("- Do not break the build", content)
+        self.assertIn("BEGIN SKILLS08 MANAGED BLOCK", content)
+
+    def test_cli_sync_command(self):
+        """Verify CLI sync command updates workspace projections via subprocess."""
+        self.installer.install("code-simplification", scope="project")
+
+        res = subprocess.run(
+            [sys.executable, "skills08.py", "-w", str(self.workspace), "sync", "--json"],
+            capture_output=True,
+            text=True
+        )
+        self.assertEqual(res.returncode, EXIT_SUCCESS, f"CLI sync failed: {res.stderr}")
+        data = json.loads(res.stdout)
+        self.assertTrue(data["success"])
+        self.assertEqual(data["data"]["installed_skills_count"], 1)
+        self.assertEqual(data["data"]["synced_counts"]["cursor"], 1)
+
 if __name__ == "__main__":
     unittest.main()
+

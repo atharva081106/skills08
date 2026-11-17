@@ -3,7 +3,7 @@
 > **Powering Every AI Coding Agent with Better Skills.**  
 > An open-source, local-first AI agent skill distribution, scaffolding, and lifecycle management platform.
 
-[![Tests](https://img.shields.io/badge/tests-47%20passed%20%28100%25%29-brightgreen)](#automated-test-suite)
+[![Tests](https://img.shields.io/badge/tests-50%20passed%20%28100%25%29-brightgreen)](#automated-test-suite)
 [![Python](https://img.shields.io/badge/python-3.8%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20%7C%20Linux%20%7C%20macOS-lightgrey)](#compatibility)
@@ -12,22 +12,30 @@
 
 ## What is Skills08?
 
-Skills08 is a comprehensive, supply-chain-hardened distribution and lifecycle manager for AI agent skills. It enables developers, engineering teams, and coding agents to discover, install, verify, author, and manage cognitive skills without security risks or environment corruption.
+Skills08 is a comprehensive, supply-chain-hardened distribution, authoring, and lifecycle manager for AI agent skills. It enables developers, engineering teams, and coding agents to discover, install, verify, author, and synchronize cognitive skills across their entire stack.
 
-### Supported AI Coding Agents
-Skills installed with Skills08 follow the standard `.agents/skills/<skill-name>/SKILL.md` specification and are automatically indexed by:
-- **Google Antigravity**
-- **Cursor**
-- **Claude Code**
-- **Gemini CLI**
+### Universal Coding Agent Support
+Skills installed or synchronized with Skills08 are automatically projected into the native configuration formats required by **every major AI coding agent**:
+
+| Coding Agent | Discovery Location | Projection Format |
+| :--- | :--- | :--- |
+| **Google Antigravity** | `.agents/skills/<name>/` | Native `SKILL.md` with YAML frontmatter |
+| **Cursor** | `.cursor/rules/<name>.mdc` & `.cursorrules` | Modern Cursor Rules + `.cursorrules` fallback |
+| **Claude Code** | `CLAUDE.md` & `.claude/skills/` | Project instructions block + modular skills mirror |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Workspace custom instructions |
+| **Windsurf** | `.windsurfrules` | Cascade agent memory & instructions block |
+| **Cline / Roo Code** | `.clinerules` | Extension guidelines and runbook rules |
+| **Gemini CLI** | `GEMINI.md` | Gemini Code Assist instructions |
+| **Universal Agents** | `AGENTS.md` | Cross-platform agent standard (OpenHands, Devin, etc.) |
 
 ---
 
 ## Key Capabilities
 
 - **Curated & Audited Catalog**: 12 production-ready skills spanning Security, Code Quality, UI/UX Design, Architecture, and Testing, fully audited for IP provenance, compatibility, and safety.
+- **Universal Multi-Agent Sync (`skills08 sync`)**: Automatically bridges installed skills into Cursor, Claude Code, GitHub Copilot, Windsurf, Cline, and Antigravity with safe delimiter protection that preserves your custom developer instructions.
 - **Model A Safe-Instruction Standard**: Eliminates process injection, unhandled bash hooks, and zombie daemon ports on Windows by utilizing cognitive prompt instructions and companion guidance mode rather than unvetted binary scripts.
-- **Arbitrary Workspace Redirection (`-w` / `--workspace-root`)**: Install, verify, or inspect skills in any target repository from anywhere on your system without changing directories.
+- **Arbitrary Workspace Redirection (`-w` / `--workspace-root`)**: Install, verify, sync, or inspect skills in any target repository from anywhere on your system without changing directories.
 - **Global User Scope (`-g` / `--global-root`)**: Deploy user-wide skills with deterministic Antigravity project-scope precedence and shadowing detection.
 - **Skill Scaffolding (`skills08 new`)**: Instant scaffolding of compliant custom skills with standard frontmatter, instruction workflows, examples, and reference guides.
 - **Packaging & Bundling (`skills08 pack`)**: Validates and packs skill directories into `.tar.gz` distribution archives with SHA-256 cryptographic manifests.
@@ -71,16 +79,17 @@ python skills08.py list
 | **`list`** | `[-c CAT] [-t TIER] [--json]` | List all candidate skills in the catalog with status and clearance. |
 | **`search`** | `<query> [-c CAT] [-t TIER] [--json]` | Search catalog by keyword, name, description, category, or tier. |
 | **`inspect`** / **`info`** | `<identifier> [--json]` | View detailed metadata, upstream commit SHA, author, and security rules. |
-| **`install`** | `<name> [--scope project\|global] [-f] [-w PATH] [-g PATH]` | Atomically install a skill into workspace or global scope. |
+| **`install`** | `<name> [--scope project\|global] [-f] [-s] [-w PATH] [-g PATH]` | Atomically install a skill into workspace or global scope. |
 | **`uninstall`** | `<name> [--scope project\|global] [-w PATH] [-g PATH]` | Cleanly remove an installed skill and update the lock registry. |
 | **`update`** | `[name] [--scope project\|global] [-w PATH]` | Refresh and re-verify installed skill(s) against the latest catalog. |
+| **`sync`** | `[-a AGENTS] [-w PATH] [--json]` | Synchronize active skills across Cursor, Claude, Copilot, Windsurf, Cline, and Gemini. |
 | **`status`** | `[--scope project\|global] [--json] [-w PATH]` | Show active skills, file counts, and shadowing across scopes. |
 | **`conflicts`** | `[--scope project\|global] [--json] [-w PATH]` | Scan environment for lexical collisions, shadowing, and persona overlap. |
 | **`verify`** | `[name] [--scope project\|global] [-V] [--json] [-w PATH]` | Cryptographically verify SHA-256 file hashes of installed skills. |
 | **`new`** | `<name> [-d DESC] [-c CAT] [-a AUTHOR] [-t PATH]` | Scaffold a new compliant agent skill template directory with `SKILL.md`. |
 | **`pack`** | `<directory> [-o OUT_DIR] [-n NAME] [--json]` | Validate a skill directory and package into a `.tar.gz` bundle with checksum. |
 | **`doctor`** | `[-w PATH] [-g PATH] [--json]` | Run comprehensive diagnostics on Python, shell, paths, and catalog. |
-| **`agent-init`** | `[-t TARGET_DIR] [--json]` | Initialize workspace with `.agents/skills.json` and agent discovery structure. |
+| **`agent-init`** | `[-t TARGET_DIR] [-a AGENTS] [--json]` | Initialize workspace with multi-agent configuration and discovery structure. |
 
 ---
 
@@ -148,8 +157,8 @@ python tests/run_all_tests.py
 ```
 
 ### Verified Test Results:
-- **Total Tests Run**: 47
-- **Passed**: 47 (100.0%)
+- **Total Tests Run**: 50
+- **Passed**: 50 (100.0%)
 - **Failures / Errors**: 0
 - **Test Modules**:
   1. `test_manifest.py`: Manifest schema, 13 candidate constraints, provenance commit SHAs.
