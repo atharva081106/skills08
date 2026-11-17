@@ -48,3 +48,52 @@ class Catalog:
             return pkg_path
         return None
 
+    def search(
+        self,
+        query: str = "",
+        category: Optional[str] = None,
+        tier: Optional[str] = None
+    ) -> List[Candidate]:
+        """Search candidate skills across name, id, display name, description, and metadata."""
+        q = (query or "").strip().lower()
+        cat = category.strip().lower() if category else None
+        tr = tier.strip().lower() if tier else None
+
+        results = []
+        for c in self.candidates:
+            # Filter by category if requested
+            if cat and cat not in c.category.lower():
+                continue
+            # Filter by tier if requested
+            if tr and tr not in c.tier.lower():
+                continue
+
+            if not q:
+                results.append(c)
+                continue
+
+            # Check matches across multiple fields
+            searchable_text = " ".join([
+                c.id.lower(),
+                c.name.lower(),
+                c.display_name.lower(),
+                c.description.lower(),
+                c.category.lower(),
+                c.tier.lower(),
+                c.operational_model.lower(),
+                c.license_clearance.lower(),
+                c.security_guidelines.lower()
+            ])
+
+            if q in searchable_text:
+                results.append(c)
+
+        return results
+
+    def list_categories(self) -> List[str]:
+        """Return sorted unique categories present in the catalog."""
+        return sorted({c.category for c in self.candidates})
+
+    def list_tiers(self) -> List[str]:
+        """Return sorted unique tiers present in the catalog."""
+        return sorted({c.tier for c in self.candidates})

@@ -2,7 +2,11 @@
 Constants for Skills08 lifecycle management and discovery.
 """
 
+import os
 from pathlib import Path
+
+# Version Information
+VERSION = "0.2.0"
 
 # Repository Root (determined dynamically from package location)
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -11,9 +15,34 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_PROJECT_SCOPE = ".agents/skills"
 DEFAULT_GLOBAL_SCOPE = "~/.gemini/config/skills"
 
+# Dynamic Resolution for Manifest and Packages (Env -> Repo -> Package Data)
+def _resolve_manifest_path() -> str:
+    env_val = os.environ.get("SKILLS08_MANIFEST_PATH")
+    if env_val and Path(env_val).exists():
+        return str(Path(env_val).resolve())
+    repo_manifest = REPO_ROOT / "manifests" / "manifest.yaml"
+    if repo_manifest.exists():
+        return str(repo_manifest)
+    pkg_manifest = Path(__file__).resolve().parent / "data" / "manifest.yaml"
+    if pkg_manifest.exists():
+        return str(pkg_manifest)
+    return str(repo_manifest)
+
+def _resolve_packages_dir() -> str:
+    env_val = os.environ.get("SKILLS08_PACKAGES_DIR")
+    if env_val and Path(env_val).exists():
+        return str(Path(env_val).resolve())
+    repo_pkgs = REPO_ROOT / "packages"
+    if repo_pkgs.exists():
+        return str(repo_pkgs)
+    pkg_pkgs = Path(__file__).resolve().parent / "packages"
+    if pkg_pkgs.exists():
+        return str(pkg_pkgs)
+    return str(repo_pkgs)
+
 # Research and Manifest Baselines
-MANIFEST_PATH = str(REPO_ROOT / "manifests" / "manifest.yaml")
-PACKAGES_DIR = str(REPO_ROOT / "packages")
+MANIFEST_PATH = _resolve_manifest_path()
+PACKAGES_DIR = _resolve_packages_dir()
 LOCK_FILE_NAME = "skills08.lock.json"
 
 # Operational Models
@@ -51,3 +80,5 @@ EXIT_SUCCESS = 0
 EXIT_ERROR = 1
 EXIT_CONFLICT = 2
 EXIT_VERIFICATION_FAILED = 3
+EXIT_NOT_FOUND = 4
+EXIT_INVALID_ARGS = 5

@@ -1,61 +1,124 @@
 # Skills08
 
-> **Powering Every AI Agent with Better Skills.**
+> **Powering Every AI Coding Agent with Better Skills.**  
+> An open-source, local-first AI agent skill distribution, scaffolding, and lifecycle management platform.
 
-Skills08 is an open-source, local-first AI agent skill distribution and lifecycle management platform. It provides a curated, verified, and supply-chain-hardened catalog of cognitive skills targeting **Google Antigravity** on Windows and cross-platform environments.
-
----
-
-## Key Capabilities (Phase 1 Complete)
-
-- **Curated & Audited Catalog**: 12 approved candidate skills across Security, Engineering, Frontend, and Documentation, audited for intellectual property provenance, compatibility, and host safety.
-- **Model A Pure-Instruction Standard**: Eliminates process injection, bash stop hook failures, and loopback port zombie daemons on Windows by prioritizing cognitive prompt playbooks over unvetted binary scripts.
-- **Dual-Scope Deployment**: Seamless project-level (`.agents/skills/`) and global configuration (`~/.gemini/config/skills/`) deployment with deterministic precedence and shadowing detection.
-- **Deterministic Cryptographic Verification**: Every installed skill asset is cryptographically verified against SHA-256 baseline digests (`skills08.lock.json`).
-- **Conflict & Collision Prevention**: Built-in static analysis detects cross-repository duplicate names, dual-scope shadowing, and aesthetic persona overlap before collisions occur.
-- **Zero External Telemetry & Zero Upstream Execution**: Local-first operation; zero third-party code is executed during cataloging, installation, or verification.
+[![Tests](https://img.shields.io/badge/tests-47%20passed%20%28100%25%29-brightgreen)](#automated-test-suite)
+[![Python](https://img.shields.io/badge/python-3.8%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20%7C%20Linux%20%7C%20macOS-lightgrey)](#compatibility)
 
 ---
 
-## Quickstart
+## What is Skills08?
 
-Skills08 provides two native interfaces: a cross-platform Python CLI and a native Windows PowerShell wrapper.
+Skills08 is a comprehensive, supply-chain-hardened distribution and lifecycle manager for AI agent skills. It enables developers, engineering teams, and coding agents to discover, install, verify, author, and manage cognitive skills without security risks or environment corruption.
 
-### Windows PowerShell:
-```powershell
-# Browse candidate catalog
-.\skills08.ps1 list
+### Supported AI Coding Agents
+Skills installed with Skills08 follow the standard `.agents/skills/<skill-name>/SKILL.md` specification and are automatically indexed by:
+- **Google Antigravity**
+- **Cursor**
+- **Claude Code**
+- **Gemini CLI**
 
-# Inspect candidate metadata, legal clearance, and security guidelines
-.\skills08.ps1 inspect security-audit
+---
 
-# Install skill to workspace (.agents/skills/<name>/)
-.\skills08.ps1 install humanizer
+## Key Capabilities
 
-# Check active skills and detect scope shadowing
-.\skills08.ps1 status
+- **Curated & Audited Catalog**: 12 production-ready skills spanning Security, Code Quality, UI/UX Design, Architecture, and Testing, fully audited for IP provenance, compatibility, and safety.
+- **Model A Safe-Instruction Standard**: Eliminates process injection, unhandled bash hooks, and zombie daemon ports on Windows by utilizing cognitive prompt instructions and companion guidance mode rather than unvetted binary scripts.
+- **Arbitrary Workspace Redirection (`-w` / `--workspace-root`)**: Install, verify, or inspect skills in any target repository from anywhere on your system without changing directories.
+- **Global User Scope (`-g` / `--global-root`)**: Deploy user-wide skills with deterministic Antigravity project-scope precedence and shadowing detection.
+- **Skill Scaffolding (`skills08 new`)**: Instant scaffolding of compliant custom skills with standard frontmatter, instruction workflows, examples, and reference guides.
+- **Packaging & Bundling (`skills08 pack`)**: Validates and packs skill directories into `.tar.gz` distribution archives with SHA-256 cryptographic manifests.
+- **Deterministic Cryptographic Verification (`skills08 verify`)**: Verifies installed files against known SHA-256 digests (`skills08.lock.json`) to detect local drift or tampering.
+- **Conflict & Shadowing Analysis (`skills08 conflicts`)**: Proactively identifies cross-repository naming collisions, dual-scope shadowing, and aesthetic persona overlap.
+- **System Doctor (`skills08 doctor`)**: Self-diagnostics for Python runtimes, PowerShell environments, directory writability, and catalog integrity.
+- **Zero Third-Party Runtime Dependencies**: Built entirely using Python's standard library (with pure-Python fallback YAML parsing).
 
-# Scan for ecosystem conflicts and aesthetic persona overlaps
-.\skills08.ps1 conflicts
+---
 
-# Verify cryptographic integrity of installed skills
-.\skills08.ps1 verify
+## Installation & Setup
 
-# Cleanly remove an installed skill
-.\skills08.ps1 uninstall humanizer
+### Option 1: Install via Pip (Recommended for Global CLI)
+```bash
+# Clone the repository
+git clone https://github.com/atharva081106/skills08.git
+cd skills08
+
+# Install in editable mode (provides 'skills08' command globally)
+pip install -e .
 ```
 
-### Python CLI (Cross-Platform):
+### Option 2: Windows Native PowerShell (Zero Installation)
+```powershell
+# Run directly with the included PowerShell wrapper
+.\skills08.ps1 doctor
+.\skills08.ps1 list
+```
+
+### Option 3: Direct Python Runner
 ```bash
 python skills08.py list
-python skills08.py inspect SKILL08-SEC-001
-python skills08.py install security-audit --scope project
-python skills08.py verify
 ```
 
 ---
 
-## Approved Phase 1 Candidate Catalog (Group A / v0.1)
+## CLI Command Reference
+
+| Command | Arguments / Flags | Description |
+| :--- | :--- | :--- |
+| **`list`** | `[-c CAT] [-t TIER] [--json]` | List all candidate skills in the catalog with status and clearance. |
+| **`search`** | `<query> [-c CAT] [-t TIER] [--json]` | Search catalog by keyword, name, description, category, or tier. |
+| **`inspect`** / **`info`** | `<identifier> [--json]` | View detailed metadata, upstream commit SHA, author, and security rules. |
+| **`install`** | `<name> [--scope project\|global] [-f] [-w PATH] [-g PATH]` | Atomically install a skill into workspace or global scope. |
+| **`uninstall`** | `<name> [--scope project\|global] [-w PATH] [-g PATH]` | Cleanly remove an installed skill and update the lock registry. |
+| **`update`** | `[name] [--scope project\|global] [-w PATH]` | Refresh and re-verify installed skill(s) against the latest catalog. |
+| **`status`** | `[--scope project\|global] [--json] [-w PATH]` | Show active skills, file counts, and shadowing across scopes. |
+| **`conflicts`** | `[--scope project\|global] [--json] [-w PATH]` | Scan environment for lexical collisions, shadowing, and persona overlap. |
+| **`verify`** | `[name] [--scope project\|global] [-V] [--json] [-w PATH]` | Cryptographically verify SHA-256 file hashes of installed skills. |
+| **`new`** | `<name> [-d DESC] [-c CAT] [-a AUTHOR] [-t PATH]` | Scaffold a new compliant agent skill template directory with `SKILL.md`. |
+| **`pack`** | `<directory> [-o OUT_DIR] [-n NAME] [--json]` | Validate a skill directory and package into a `.tar.gz` bundle with checksum. |
+| **`doctor`** | `[-w PATH] [-g PATH] [--json]` | Run comprehensive diagnostics on Python, shell, paths, and catalog. |
+| **`agent-init`** | `[-t TARGET_DIR] [--json]` | Initialize workspace with `.agents/skills.json` and agent discovery structure. |
+
+---
+
+## Quickstart Tutorial
+
+### 1. Initialize a Project for Coding Agents
+```bash
+skills08 agent-init -w "D:\Projects\MyApp"
+```
+
+### 2. Search and Install Skills
+```bash
+# Search for design or security skills
+skills08 search "security"
+skills08 search "frontend"
+
+# Install into your project workspace
+skills08 install security-audit -w "D:\Projects\MyApp"
+skills08 install code-simplification -w "D:\Projects\MyApp"
+```
+
+### 3. Verify Active Skills
+```bash
+skills08 status -w "D:\Projects\MyApp"
+skills08 verify -w "D:\Projects\MyApp"
+```
+
+### 4. Author a Custom Skill for Your Team
+```bash
+skills08 new api-design-guidelines \
+  -d "Enforces RESTful API conventions and OpenAPI 3.1 schemas" \
+  -c "Architecture" \
+  -w "D:\Projects\MyApp"
+```
+
+---
+
+## Approved Skills Catalog (Group A / v0.1)
 
 | Candidate ID | Skill Name | Category | Operational Model | Upstream Author |
 | :--- | :--- | :--- | :--- | :--- |
@@ -76,30 +139,51 @@ python skills08.py verify
 
 ---
 
-## Documentation & Verification Register
+## Automated Test Suite
+
+Skills08 includes a comprehensive automated regression, security, lifecycle, and compatibility test suite.
+
+```bash
+python tests/run_all_tests.py
+```
+
+### Verified Test Results:
+- **Total Tests Run**: 47
+- **Passed**: 47 (100.0%)
+- **Failures / Errors**: 0
+- **Test Modules**:
+  1. `test_manifest.py`: Manifest schema, 13 candidate constraints, provenance commit SHAs.
+  2. `test_catalog_and_packages.py`: Package completeness, companion markdown preservation, script omission.
+  3. `test_conflicts.py`: Cross-repository collisions, scope shadowing, aesthetic overlap detection.
+  4. `test_installer_lifecycle.py`: Atomic installation, force overwrites, path traversal defenses, junction/symlink security.
+  5. `test_verifier_integrity.py`: SHA-256 detection of modified, extra, or missing assets.
+  6. `test_security_and_secrets.py`: Zero credentials, zero third-party runtime dependencies, zero arbitrary `eval`/`exec`.
+  7. `test_windows_compatibility.py`: Spaces, Unicode paths, normalized slash separators, exit codes.
+  8. `test_protected_baselines.py`: Invariant verification of all research baselines and 19 locked git checkouts.
+  9. `test_full_fledged_features.py`: Redirection flags (`-w`, `-g`), search, scaffolding, packaging, doctor, update, and JSON outputs.
+
+---
+
+## Documentation & Evidence Register
 
 - **Phase 1 Master Completion Report**: [`docs/PHASE_1_COMPLETION_REPORT.md`](./docs/PHASE_1_COMPLETION_REPORT.md)
+- **Phase 1.5 Validation Report**: [`validation/phase-1.5/PRODUCT_VALIDATION_REPORT.md`](./validation/phase-1.5/PRODUCT_VALIDATION_REPORT.md)
+- **Findings Register**: [`validation/phase-1.5/FINDINGS_REGISTER.md`](./validation/phase-1.5/FINDINGS_REGISTER.md)
 - **System Architecture**: [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)
-- **CLI User Manual & Operational Guide**: [`docs/OPERATIONAL_GUIDE.md`](./docs/OPERATIONAL_GUIDE.md)
-- **Testing & Validation Report**: [`docs/TESTING_AND_VALIDATION_REPORT.md`](./docs/TESTING_AND_VALIDATION_REPORT.md) (27/27 Tests Passed)
+- **CLI User Manual**: [`docs/OPERATIONAL_GUIDE.md`](./docs/OPERATIONAL_GUIDE.md)
 - **Security & Limitations**: [`docs/SECURITY_AND_LIMITATIONS.md`](./docs/SECURITY_AND_LIMITATIONS.md)
-- **Protected-Baseline Integrity Report**: [`docs/PROTECTED_BASELINE_INTEGRITY_REPORT.md`](./docs/PROTECTED_BASELINE_INTEGRITY_REPORT.md) (100% Invariance Certified)
-- **Phase 1 Recommendations (D7)**: [`docs/research/PHASE_1_RECOMMENDATIONS.md`](./docs/research/PHASE_1_RECOMMENDATIONS.md)
-- **Upstream Research Baselines**:
+- **Research Baselines**:
   - [D1: Source Inventory](./docs/research/SOURCE_INVENTORY.md)
   - [D2: Skills Extraction](./docs/research/SKILLS_EXTRACTION.md)
   - [D3: License Matrix](./docs/research/LICENSE_MATRIX.md)
   - [D4: Compatibility Matrix](./docs/research/COMPATIBILITY_MATRIX.md)
   - [D5: Security Audit](./docs/research/SECURITY_AUDIT.md) & [Correction Report](./docs/research/SECURITY_AUDIT_CORRECTION_REPORT.md)
   - [D6: Conflict Analysis](./docs/research/CONFLICT_ANALYSIS.md) & [Verification Report](./docs/research/D6_FINAL_VERIFICATION_REPORT.md)
+  - [D7: Phase 1 Recommendations](./docs/research/PHASE_1_RECOMMENDATIONS.md)
 
 ---
 
-## Automated Test Suite
+## License
 
-Run the full verification test suite directly:
-```bash
-python tests/run_all_tests.py
-```
-
-Results: **27 tests executed, 27 passed (100.0% pass rate), 0 failures, 0 errors**.
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for details.
+Original upstream skills retain the copyrights of their respective authors as documented in each package's `NOTICE.md`.

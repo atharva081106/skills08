@@ -21,16 +21,31 @@ from .constants import (
 class Installer:
     """Installs, uninstalls, and tracks skills across project and global scopes."""
 
-    def __init__(self, workspace_root: Optional[Path] = None, global_root: Optional[Path] = None):
-        self.workspace_root = (workspace_root or Path(".")).resolve()
+    def __init__(
+        self,
+        workspace_root: Optional[Path] = None,
+        global_root: Optional[Path] = None,
+        catalog: Optional[Catalog] = None
+    ):
+        env_ws = os.environ.get("SKILLS08_WORKSPACE_ROOT")
+        if workspace_root:
+            self.workspace_root = Path(workspace_root).resolve()
+        elif env_ws:
+            self.workspace_root = Path(env_ws).resolve()
+        else:
+            self.workspace_root = Path(".").resolve()
+
         self.project_skills_root = (self.workspace_root / DEFAULT_PROJECT_SCOPE).resolve()
         
+        env_gl = os.environ.get("SKILLS08_GLOBAL_ROOT")
         if global_root:
-            self.global_skills_root = global_root.resolve()
+            self.global_skills_root = Path(global_root).resolve()
+        elif env_gl:
+            self.global_skills_root = Path(env_gl).resolve()
         else:
             self.global_skills_root = Path(os.path.expanduser(DEFAULT_GLOBAL_SCOPE)).resolve()
 
-        self.catalog = Catalog()
+        self.catalog = catalog or Catalog()
 
     def get_target_root(self, scope: str = "project") -> Path:
         """Resolve and validate target installation root."""
@@ -179,6 +194,42 @@ class Installer:
             return True, f"Successfully uninstalled '{skill_name}' from {scope} scope."
         except Exception as e:
             return False, f"Uninstall failed: {e}"
+
+    def update(
+        self,
+        identifier: Optional[str] = None,
+        scope: str = "project"
+    ) -> Tuple[bool, str, int]:
+        """Update an installed skill or all installed skills to match the latest catalog."""
+        if identifier:
+            cand = self.catalog.find(identifier)
+            if not cand:
+                return False, f"Candidate '{identifier}' not found in catalog.", 0
+            if not self.is_installed(cand.name, scope=scope):
+                return False, f"Skill '{cand.name}' is not currently installed in {scope} scope. Use 'install' instead.", 0
+            success, msg = self.install(cand.name, scope=scope, force=True)
+            return success, msg, 1 if success else 0
+
+        # Update all skills installed in the scope
+        installed = self.list_installed(scope=scope)
+        if not installed:
+            return True, f"No skills installed in {scope} scope to update.", 0
+
+        updated_count = 0
+        errors = []
+        for s in installed:
+            cand = self.catalog.find(s.name)
+            if not cand:
+                continue
+            success, msg = self.install(cand.name, scope=scope, force=True)
+            if success:
+                updated_count += 1
+            else:
+                errors.append(f"{s.name}: {msg}")
+
+        if errors:
+            return False, f"Updated {updated_count}/{len(installed)} skills. Errors: {'; '.join(errors)}", updated_count
+        return True, f"Successfully updated all {updated_count} skill(s) in {scope} scope.", updated_count
 
     @staticmethod
     def _safe_remove_path(target_path: Path) -> None:

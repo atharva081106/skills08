@@ -62,7 +62,8 @@ def run_tests():
             "test_verifier_integrity.py",
             "test_security_and_secrets.py",
             "test_windows_compatibility.py",
-            "test_protected_baselines.py"
+            "test_protected_baselines.py",
+            "test_full_fledged_features.py"
         ]
     }
 
