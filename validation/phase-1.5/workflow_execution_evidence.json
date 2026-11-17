@@ -1,0 +1,276 @@
+{
+  "WFA_help": {
+    "label": "WFA_help",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py --help",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "usage: skills08 [-h]\n                {list,inspect,install,uninstall,status,conflicts,verify} ...\n\nSkills08: Local-First AI Agent Skill Distribution & Lifecycle Manager\n\npositional arguments:\n  {list,inspect,install,uninstall,status,conflicts,verify}\n                        Available commands\n    list                List all candidate skills in catalog\n    inspect             Inspect candidate metadata and guidelines\n    install             Install a skill package\n    uninstall           Uninstall a skill package\n    status              Show installed skills and scope status\n    conflicts           Check installed skills for conflicts and shadowing\n    verify              Verify cryptographic integrity of installed skills\n\noptions:\n  -h, --help            show this help message and exit\n",
+    "stderr": ""
+  },
+  "WFA_list": {
+    "label": "WFA_list",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py list",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Phase 1 Candidate Catalog ===\n\nCandidate ID    | Skill Name                    | Category                            | Tier             | Operational Model                   | Installed\n----------------+-------------------------------+-------------------------------------+------------------+-------------------------------------+----------\nSKILL08-SEC-001 | security-audit                | Security                            | Group A (v0.1)   | Companion-File Guidance Mode        | No       \nSKILL08-DOC-001 | humanizer                     | Documentation and Technical Writing | Group A (v0.1)   | Native Pure-Instruction             | No       \nSKILL08-UI-001  | unslop                        | UI/UX and Design Systems            | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-UI-002  | hallmark                      | UI/UX and Design Systems            | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-FE-001  | design-taste-frontend         | Frontend Development                | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-SWE-001 | code-simplification           | Code Quality and Review             | Group A (v0.1)   | Native Pure-Instruction             | No       \nSKILL08-SWE-002 | simplify-codebase             | Code Quality and Review             | Group A (v0.1)   | Native Pure-Instruction             | No       \nSKILL08-TST-001 | browser-testing-with-devtools | Testing and Browser Automation      | Group A (v0.1)   | Native Subagent Dispatch            | No       \nSKILL08-SWE-003 | debugging-and-error-recovery  | Software Engineering                | Group A (v0.1)   | Native Pure-Instruction             | No       \nSKILL08-ARC-001 | archify                       | Architecture and System Design      | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-FE-002  | scroll-craft                  | Frontend Development                | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-UI-003  | impeccable                    | UI/UX and Design Systems            | Group A (v0.1)   | Model A (Instruction-Only)          | No       \nSKILL08-UI-004  | open-pencil                   | UI/UX and Design Systems            | Group B (Future) | Deferred External Runtime (Group B) | No       \n\nTotal Candidates: 13 (12 Approved Group A, 1 Deferred Group B)\n\n",
+    "stderr": ""
+  },
+  "WFA_inspect_humanizer": {
+    "label": "WFA_inspect_humanizer",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py inspect humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Candidate Inspection: humanizer (SKILL08-DOC-001) ===\n\nDisplay Name:         Humanizer Prose Refinement\nCategory:             Documentation and Technical Writing\nTier:                 Group A (v0.1)\nOperational Model:    Native Pure-Instruction\nLegal Clearance:      Tier 1: Standard Clearance (MIT)\nAuthor / Maintainer:  Siqi Chen\nUpstream Repository:  https://github.com/blader/humanizer.git\nLocked Commit SHA:    b48c832f0f809c1b5658edbb838c2521b72f2413\nDeclared License:     MIT\n\nDescription:\n  Rewrite AI-sounding text so it reads like an authentic writer without altering underlying facts, with built-in prompt injection defense.\n\nSecurity Guidelines (D5):\n  Pure prompt with built-in prompt injection defense. Lowest residual risk.\n\nAdaptation Requirements (D4/D7):\n  Relocation from upstream repository root SKILL.md to standard directory .agents/skills/humanizer/SKILL.md.\n\n",
+    "stderr": ""
+  },
+  "WFA_inspect_id": {
+    "label": "WFA_inspect_id",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py inspect SKILL08-SEC-001",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Candidate Inspection: security-audit (SKILL08-SEC-001) ===\n\nDisplay Name:         Codebase Security Audit\nCategory:             Security\nTier:                 Group A (v0.1)\nOperational Model:    Companion-File Guidance Mode\nLegal Clearance:      Tier 1: Standard Clearance (MIT)\nAuthor / Maintainer:  Dan Jones / Cloudflare, Inc.\nUpstream Repository:  https://github.com/cloudflare/security-audit-skill.git\nLocked Commit SHA:    c1c8a8c1471069fb0e188eeaff69b8e8db6564a8\nDeclared License:     MIT\n\nDescription:\n  Source-first security guidance and vulnerability review for codebases, APIs, and daemons. Strictly restricted to Guidance Mode on Windows in v0.1 (full audit execution and dynamic target execution disabled; NEEDS-VALIDATION.md used for dynamic verification).\n\nSecurity Guidelines (D5):\n  Guidance Mode Mandatory on Windows. Full audit execution & target scripts disabled. Static exploration only via research subagent.\n\nAdaptation Requirements (D4/D7):\n  Relocate entire skills/security-audit/ bundle (SKILL.md, 14 companion markdown playbooks, report-schema.json, and 2 CJS validators) to .agents/skills/security-audit/. Retain flat directory structure to preserve internal relative markdown links. Map subagent roles (research -> read-only codebase exploration subagent; self subagent cannot be used for untrusted code execution). Enforce strict Guidance Mode restriction on Windows: full audit execution is disabled because OS-level cgroups/descriptor sandboxing cannot be enforced; target code execution is strictly prohibited; all dynamic checks must use the built-in NEEDS-VALIDATION.md fallback protocol.\n\nSupporting Files:\n  AI-AND-LLM.md, ATTACK-CLASSES.md, CLIENT-SIDE.md, CLOUD-AND-DEPLOYMENT.md, DATA-ISOLATION-AND-LIFECYCLE.md, DESKTOP-MOBILE-AND-LOCAL-IPC.md, HUNTING.md, MEMORY-SAFETY-AND-BINARY.md, PROTOCOLS-RPC-AND-MESSAGING.md, RECONNAISSANCE.md, RESOURCE-EXHAUSTION-AND-AVAILABILITY.md, SUPPLY-CHAIN-AND-RELEASE.md, VALIDATION-AND-REPORTING.md, WEB-PROTOCOL-AND-AUTH.md, report-schema.json, validate-findings.cjs, validate-coverage-ledger.cjs\n\n",
+    "stderr": ""
+  },
+  "WFB_inspect_dev": {
+    "label": "WFB_inspect_dev",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py inspect code-simplification",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Candidate Inspection: code-simplification (SKILL08-SWE-001) ===\n\nDisplay Name:         Code Simplification & Pruning\nCategory:             Code Quality and Review\nTier:                 Group A (v0.1)\nOperational Model:    Native Pure-Instruction\nLegal Clearance:      Tier 1: Standard Clearance (MIT)\nAuthor / Maintainer:  Addy Osmani\nUpstream Repository:  https://github.com/addyosmani/agent-skills.git\nLocked Commit SHA:    39b723ceebf81474d0557c1fecd01eddab585563\nDeclared License:     MIT\n\nDescription:\n  Surgical simplification of complex software, reducing cyclomatic complexity, dead code paths, and unnecessary abstractions.\n\nSecurity Guidelines (D5):\n  Pure prompt. Read-only code analysis instructions; lowest residual risk.\n\nAdaptation Requirements (D4/D7):\n  Relocation from upstream skills/code-simplification/ to .agents/skills/code-simplification/.\n\n",
+    "stderr": ""
+  },
+  "WFB_inspect_sec": {
+    "label": "WFB_inspect_sec",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py inspect security-audit",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Candidate Inspection: security-audit (SKILL08-SEC-001) ===\n\nDisplay Name:         Codebase Security Audit\nCategory:             Security\nTier:                 Group A (v0.1)\nOperational Model:    Companion-File Guidance Mode\nLegal Clearance:      Tier 1: Standard Clearance (MIT)\nAuthor / Maintainer:  Dan Jones / Cloudflare, Inc.\nUpstream Repository:  https://github.com/cloudflare/security-audit-skill.git\nLocked Commit SHA:    c1c8a8c1471069fb0e188eeaff69b8e8db6564a8\nDeclared License:     MIT\n\nDescription:\n  Source-first security guidance and vulnerability review for codebases, APIs, and daemons. Strictly restricted to Guidance Mode on Windows in v0.1 (full audit execution and dynamic target execution disabled; NEEDS-VALIDATION.md used for dynamic verification).\n\nSecurity Guidelines (D5):\n  Guidance Mode Mandatory on Windows. Full audit execution & target scripts disabled. Static exploration only via research subagent.\n\nAdaptation Requirements (D4/D7):\n  Relocate entire skills/security-audit/ bundle (SKILL.md, 14 companion markdown playbooks, report-schema.json, and 2 CJS validators) to .agents/skills/security-audit/. Retain flat directory structure to preserve internal relative markdown links. Map subagent roles (research -> read-only codebase exploration subagent; self subagent cannot be used for untrusted code execution). Enforce strict Guidance Mode restriction on Windows: full audit execution is disabled because OS-level cgroups/descriptor sandboxing cannot be enforced; target code execution is strictly prohibited; all dynamic checks must use the built-in NEEDS-VALIDATION.md fallback protocol.\n\nSupporting Files:\n  AI-AND-LLM.md, ATTACK-CLASSES.md, CLIENT-SIDE.md, CLOUD-AND-DEPLOYMENT.md, DATA-ISOLATION-AND-LIFECYCLE.md, DESKTOP-MOBILE-AND-LOCAL-IPC.md, HUNTING.md, MEMORY-SAFETY-AND-BINARY.md, PROTOCOLS-RPC-AND-MESSAGING.md, RECONNAISSANCE.md, RESOURCE-EXHAUSTION-AND-AVAILABILITY.md, SUPPLY-CHAIN-AND-RELEASE.md, VALIDATION-AND-REPORTING.md, WEB-PROTOCOL-AND-AUTH.md, report-schema.json, validate-findings.cjs, validate-coverage-ledger.cjs\n\n",
+    "stderr": ""
+  },
+  "WFC_conflicts_empty": {
+    "label": "WFC_conflicts_empty",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py conflicts",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_a",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Conflict & Shadowing Analysis ===\n\n[PASS] No active conflicts, shadowing, or collisions detected in the current environment.\n\n",
+    "stderr": ""
+  },
+  "WFC_install_unslop": {
+    "label": "WFC_install_unslop",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install unslop",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_c",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'unslop' (SKILL08-UI-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_c\\.agents\\skills\\unslop [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFC_install_hallmark": {
+    "label": "WFC_install_hallmark",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install hallmark",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_c",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'hallmark' (SKILL08-UI-002) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_c\\.agents\\skills\\hallmark [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFC_conflicts_detected": {
+    "label": "WFC_conflicts_detected",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py conflicts",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_c",
+    "exit_code": 2,
+    "stdout": "\n=== Skills08 Conflict & Shadowing Analysis ===\n\nDetected 2 ecosystem interaction issue(s):\n\n[1] CON-001: Aesthetic Persona & Design Token Incompatibility (Severity: Medium)\n    Category: Capability Overlap & Token Collision\n    Details:  Multiple competing frontend design skills are simultaneously active: unslop, hallmark. Unscoped co-loading may introduce conflicting styling heuristics and prompt bloat.\n    Mitigation: Follow D7 REC-SYS-006: Scope skills by workflow phase \u2014 'unslop' for pre-commit critique, 'hallmark' for component micro-polish, 'design-taste-frontend' for design system tokens, 'impeccable' for holistic UX direction.\n\n[2] CON-011: Cross-Repository Lexical Collision: hallmark (Severity: Medium)\n    Category: Naming & Discovery\n    Details:  Skill name 'hallmark' appears across multiple distinct upstream repositories (hallmark, open-design). Flat installation without namespacing causes collisions.\n    Mitigation: Install canonical single-origin package curated by Skills08.\n\n",
+    "stderr": ""
+  },
+  "WFD_install": {
+    "label": "WFD_install",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFD_status": {
+    "label": "WFD_status",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py status",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Workspace & Global Status ===\n\nWorkspace Root:       C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d\nProject Scope Path:   C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d\\.agents\\skills\nGlobal Scope Path:    C:\\Users\\athar\\.gemini\\config\\skills\n\nSkill Name | Scope   | Files | Shadowed | Path                                                                                          \n-----------+---------+-------+----------+-----------------------------------------------------------------------------------------------\nhumanizer  | project | 2     | No       | C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d\\.agents\\skills\\humanizer\n\nTotal Active Skills: 1\n\n",
+    "stderr": ""
+  },
+  "WFD_verify": {
+    "label": "WFD_verify",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_d",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [PASS] NOTICE.md (SHA-256 match)\n   [PASS] SKILL.md (SHA-256 match)\n\nVerification Summary: 2/2 files verified identical.\n[PASS] All inspected skill packages passed cryptographic integrity checks.\n\n",
+    "stderr": ""
+  },
+  "WFD_files": {
+    "files": [
+      ".agents/skills/humanizer/NOTICE.md",
+      ".agents/skills/humanizer/SKILL.md",
+      ".agents/skills/skills08.lock.json",
+      "user_code.py"
+    ]
+  },
+  "WFE_global_status": {
+    "status": "BLOCKED",
+    "reason": "The skills08 CLI does not provide a --global-root or --home configuration option to redirect global scope to a disposable directory. Running --scope global targets the user's live ~/.gemini/config/skills directory on disk. Per Rule 3.5 and Workflow E instructions, destructive/mutating operations against real user directories are forbidden."
+  },
+  "WFF_install": {
+    "label": "WFF_install",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFF_verify_clean": {
+    "label": "WFF_verify_clean",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [PASS] NOTICE.md (SHA-256 match)\n   [PASS] SKILL.md (SHA-256 match)\n\nVerification Summary: 2/2 files verified identical.\n[PASS] All inspected skill packages passed cryptographic integrity checks.\n\n",
+    "stderr": ""
+  },
+  "WFF_verify_modified": {
+    "label": "WFF_verify_modified",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 3,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [PASS] NOTICE.md (SHA-256 match)\n   [MODIFIED] SKILL.md (Hash mismatch: 82bc5f290ada vs fe75f3b74947)\n\nVerification Summary: 1/2 files verified identical.\n",
+    "stderr": "[FAILED] Integrity drift or missing assets detected.\n\n"
+  },
+  "WFF_verify_missing": {
+    "label": "WFF_verify_missing",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 3,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [MISSING] NOTICE.md (Required file missing from installed skill directory.)\n   [PASS] SKILL.md (SHA-256 match)\n\nVerification Summary: 1/2 files verified identical.\n",
+    "stderr": "[FAILED] Integrity drift or missing assets detected.\n\n"
+  },
+  "WFF_verify_extra": {
+    "label": "WFF_verify_extra",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 3,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [MISSING] NOTICE.md (Required file missing from installed skill directory.)\n   [PASS] SKILL.md (SHA-256 match)\n   [EXTRA] rogue_injected.txt (Uncurated or unexpected file present in skill directory.)\n\nVerification Summary: 1/3 files verified identical.\n",
+    "stderr": "[FAILED] Integrity drift or missing assets detected.\n\n"
+  },
+  "WFF_verify_specific": {
+    "label": "WFF_verify_specific",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_f",
+    "exit_code": 3,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [MISSING] NOTICE.md (Required file missing from installed skill directory.)\n   [PASS] SKILL.md (SHA-256 match)\n   [EXTRA] rogue_injected.txt (Uncurated or unexpected file present in skill directory.)\n\nVerification Summary: 1/3 files verified identical.\n",
+    "stderr": "[FAILED] Integrity drift or missing assets detected.\n\n"
+  },
+  "WFG_install": {
+    "label": "WFG_install",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFG_uninstall": {
+    "label": "WFG_uninstall",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py uninstall humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully uninstalled 'humanizer' from project scope.\n\n",
+    "stderr": ""
+  },
+  "WFG_files_after": {
+    "files": [
+      ".agents/skills/skills08.lock.json",
+      "keep_me.txt"
+    ]
+  },
+  "WFG_uninstall_repeat": {
+    "label": "WFG_uninstall_repeat",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py uninstall humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Skill 'humanizer' is not installed in project scope at C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g\\.agents\\skills\\humanizer.\n\n"
+  },
+  "WFG_uninstall_traversal": {
+    "label": "WFG_uninstall_traversal",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py uninstall ../../escape",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Security violation: path traversal detected for 'C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g\\.agents\\skills\\..\\..\\escape'.\n\n"
+  },
+  "WFG_uninstall_empty": {
+    "label": "WFG_uninstall_empty",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py uninstall ",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_g",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Security violation: invalid skill name for uninstallation.\n\n"
+  },
+  "WFH_unknown": {
+    "label": "WFH_unknown",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install non-existent-skill",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Candidate 'non-existent-skill' not found in catalog.\n\n"
+  },
+  "WFH_group_b": {
+    "label": "WFH_group_b",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install open-pencil",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Candidate 'open-pencil' (SKILL08-UI-004) is deferred to Group B (v0.2+). Installation is disabled in Phase 1 per D7 recommendation REC-CAN-013.\n\n"
+  },
+  "WFH_install_1": {
+    "label": "WFH_install_1",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFH_install_duplicate_noforce": {
+    "label": "WFH_install_duplicate_noforce",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "\n[FAILED] Skill 'humanizer' is already installed at C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h\\.agents\\skills\\humanizer. Use --force to overwrite.\n\n"
+  },
+  "WFH_install_duplicate_force": {
+    "label": "WFH_install_duplicate_force",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer --force",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_h\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFO_spaces_install": {
+    "label": "WFO_spaces_install",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py install humanizer",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\project with spaces in name",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'humanizer' (SKILL08-DOC-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\project with spaces in name\\.agents\\skills\\humanizer [project scope].\n\n",
+    "stderr": ""
+  },
+  "WFO_spaces_verify": {
+    "label": "WFO_spaces_verify",
+    "command": "C:\\Users\\athar\\AppData\\Local\\Programs\\Python\\Python310\\python.exe D:\\skills08\\skills08.py verify",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\project with spaces in name",
+    "exit_code": 0,
+    "stdout": "\n=== Skills08 Cryptographic Integrity Verification ===\n\n-> Verifying humanizer [project]:\n   [PASS] NOTICE.md (SHA-256 match)\n   [PASS] SKILL.md (SHA-256 match)\n\nVerification Summary: 2/2 files verified identical.\n[PASS] All inspected skill packages passed cryptographic integrity checks.\n\n",
+    "stderr": ""
+  },
+  "WFO_ps_install": {
+    "label": "WFO_ps_install",
+    "command": "powershell -File D:\\skills08\\skills08.ps1 install code-simplification",
+    "cwd": "C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_ps",
+    "exit_code": 0,
+    "stdout": "\n[OK] Successfully installed 'code-simplification' (SKILL08-SWE-001) to C:\\Users\\athar\\AppData\\Local\\Temp\\skills08_val_runner_bnnbv3s8\\proj_ps\\.agents\\skills\\code-simplification [project scope].\n\n",
+    "stderr": ""
+  }
+}

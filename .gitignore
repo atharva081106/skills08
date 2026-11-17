@@ -1,0 +1,25 @@
+# Research sources (unmodified upstream clones)
+research/sources/
+
+# OS / Environment artifacts
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Staging directories
+.skills08_staging_*
+
+# Local installed skills & agent artifacts
+.agents/
+
+# Temporary files
+*.tmp
+*.log
+
+

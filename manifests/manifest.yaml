@@ -1,0 +1,444 @@
+# Skills08 Master Manifest
+# Schema: skills08/manifest/v0.1
+# Generated: 2026-11-16T15:18:00+05:30
+# Status: Phase 1 Candidate Catalog (Provisional - Pending Legal & Security Clearances)
+# Notice: Inventoried upstream skills are recorded for research and capability evaluation only.
+# No upstream content is republished, modified, or approved for redistribution at this stage.
+
+metadata:
+  platform: Skills08
+  version: 0.1.0-alpha
+  target_agent: Google Antigravity
+  canonical_workspace_root: .agents/skills/
+  canonical_global_root: ~/.gemini/config/skills/
+  total_candidates: 13
+  evaluation_status: Provisional
+
+candidates:
+  - id: SKILL08-SEC-001
+    name: security-audit
+    display_name: Codebase Security Audit
+    category: Security
+    tier: Group A (v0.1)
+    description: Source-first security guidance and vulnerability review for codebases, APIs, and daemons. Strictly restricted to Guidance Mode on Windows in v0.1 (full audit execution and dynamic target execution disabled; NEEDS-VALIDATION.md used for dynamic verification).
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/security-audit/SKILL.md
+      global_path: ~/.gemini/config/skills/security-audit/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: >-
+        Relocate entire skills/security-audit/ bundle (SKILL.md, 14 companion markdown playbooks, report-schema.json, and 2 CJS validators) to .agents/skills/security-audit/. Retain flat directory structure to preserve internal relative markdown links. Map subagent roles (research -> read-only codebase exploration subagent; self subagent cannot be used for untrusted code execution). Enforce strict Guidance Mode restriction on Windows: full audit execution is disabled because OS-level cgroups/descriptor sandboxing cannot be enforced; target code execution is strictly prohibited; all dynamic checks must use the built-in NEEDS-VALIDATION.md fallback protocol.
+    upstream_provenance:
+      repository_url: https://github.com/cloudflare/security-audit-skill.git
+      commit_sha: c1c8a8c1471069fb0e188eeaff69b8e8db6564a8
+      source_file_path: skills/security-audit/SKILL.md
+      author: Dan Jones / Cloudflare, Inc.
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt guidance mode on Windows; Node.js validator execution deferred)
+      supporting_files:
+        - AI-AND-LLM.md
+        - ATTACK-CLASSES.md
+        - CLIENT-SIDE.md
+        - CLOUD-AND-DEPLOYMENT.md
+        - DATA-ISOLATION-AND-LIFECYCLE.md
+        - DESKTOP-MOBILE-AND-LOCAL-IPC.md
+        - HUNTING.md
+        - MEMORY-SAFETY-AND-BINARY.md
+        - PROTOCOLS-RPC-AND-MESSAGING.md
+        - RECONNAISSANCE.md
+        - RESOURCE-EXHAUSTION-AND-AVAILABILITY.md
+        - SUPPLY-CHAIN-AND-RELEASE.md
+        - VALIDATION-AND-REPORTING.md
+        - WEB-PROTOCOL-AND-AUTH.md
+        - report-schema.json
+        - validate-findings.cjs
+        - validate-coverage-ledger.cjs
+      tools:
+        - read_file (static exploration and code analysis)
+        - invoke_subagent (research subagent for read-only codebase exploration; self subagent for analysis only, never for target code execution)
+
+  - id: SKILL08-DOC-001
+    name: humanizer
+    display_name: Humanizer Prose Refinement
+    category: Documentation and Technical Writing
+    tier: Group A (v0.1)
+    description: Rewrite AI-sounding text so it reads like an authentic writer without altering underlying facts, with built-in prompt injection defense.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/humanizer/SKILL.md
+      global_path: ~/.gemini/config/skills/humanizer/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream repository root SKILL.md to standard directory .agents/skills/humanizer/SKILL.md.
+    upstream_provenance:
+      repository_url: https://github.com/blader/humanizer.git
+      commit_sha: b48c832f0f809c1b5658edbb838c2521b72f2413
+      source_file_path: SKILL.md
+      author: Siqi Chen
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt)
+      supporting_directories: []
+      tools:
+        - Read
+        - Edit
+
+  - id: SKILL08-UI-001
+    name: unslop
+    display_name: Unslop UI Redline Polish
+    category: UI/UX and Design Systems
+    tier: Group A (v0.1)
+    description: 9-pass design cleanup transforming generic vibecoded interfaces into intentional, brand-specific UI without synthetic tells.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/unslop/SKILL.md
+      global_path: ~/.gemini/config/skills/unslop/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream skills/unslop/ to .agents/skills/unslop/ with references/ and scripts/.
+    upstream_provenance:
+      repository_url: https://github.com/heydamir/unslop.git
+      commit_sha: 620163eedb3529d9cd23a3994ed8d287d06f760d
+      source_file_path: skills/unslop/SKILL.md
+      author: Damir Sokolovsky
+      declared_license: CC-BY-4.0
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: Optional Node.js (for snapshot.mjs script)
+      supporting_directories:
+        - references/
+        - scripts/
+      tools:
+        - Read
+        - Edit
+        - Write
+
+  - id: SKILL08-UI-002
+    name: hallmark
+    display_name: Hallmark Structural UI Floor
+    category: UI/UX and Design Systems
+    tier: Group A (v0.1)
+    description: Enforces non-waivable structural quality floors, CSS token discipline, and layout hygiene for newly generated web pages.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/hallmark/SKILL.md
+      global_path: ~/.gemini/config/skills/hallmark/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream skills/hallmark/ to .agents/skills/hallmark/ with references/ and scripts/.
+    upstream_provenance:
+      repository_url: https://github.com/Nutlope/hallmark.git
+      commit_sha: 04977e15f3dfd6ee4b74c887dac3eb52665d6c92
+      source_file_path: skills/hallmark/SKILL.md
+      author: Hassan El Mghari / Hallmark contributors
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: Optional Node.js (for sloplint.mjs linter)
+      supporting_directories:
+        - references/
+        - scripts/
+      tools:
+        - Read
+        - Edit
+        - Write
+
+  - id: SKILL08-FE-001
+    name: design-taste-frontend
+    display_name: Design Taste Frontend Playbook
+    category: Frontend Development
+    tier: Group A (v0.1)
+    description: Builds high-end company landing pages and product showcases following strict 9 house rules and micro-interactions.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/design-taste-frontend/SKILL.md
+      global_path: ~/.gemini/config/skills/design-taste-frontend/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Adaptation-required
+      adaptation_requirements: Strip Claude Code bash stop hook from frontmatter. Retain gate.mjs as optional verification script runnable via Node cross-platform.
+    upstream_provenance:
+      repository_url: https://github.com/leonxlnx/taste-skill.git
+      commit_sha: f6b76575f949707b4e3c37cd86cb44b0b98643e8
+      source_file_path: skills/taste-skill/SKILL.md
+      author: Leon Lin
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: Optional Node 22+ (for gate check)
+      supporting_directories:
+        - references/
+        - scripts/
+      tools:
+        - Read
+        - Edit
+        - Write
+
+  - id: SKILL08-SWE-001
+    name: code-simplification
+    display_name: Code Simplification & Pruning
+    category: Code Quality and Review
+    tier: Group A (v0.1)
+    description: Surgical simplification of complex software, reducing cyclomatic complexity, dead code paths, and unnecessary abstractions.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/code-simplification/SKILL.md
+      global_path: ~/.gemini/config/skills/code-simplification/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream skills/code-simplification/ to .agents/skills/code-simplification/.
+    upstream_provenance:
+      repository_url: https://github.com/addyosmani/agent-skills.git
+      commit_sha: 39b723ceebf81474d0557c1fecd01eddab585563
+      source_file_path: skills/code-simplification/SKILL.md
+      author: Addy Osmani
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt)
+      supporting_directories:
+        - references/
+      tools:
+        - Read
+        - Edit
+
+  - id: SKILL08-SWE-002
+    name: simplify-codebase
+    display_name: Codebase Entropy Audit
+    category: Code Quality and Review
+    tier: Group A (v0.1)
+    description: Architectural simplification audit and entropy recovery across multi-module systems, dividing work into survey and change modes.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/simplify-codebase/SKILL.md
+      global_path: ~/.gemini/config/skills/simplify-codebase/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Native
+      adaptation_requirements: None. Already resides under .agents/skills/simplify-codebase/SKILL.md with valid Antigravity frontmatter.
+    upstream_provenance:
+      repository_url: https://github.com/tt-a1i/archify.git
+      commit_sha: a7ed6fd6657da90414831d1d42cf95987188750c
+      source_file_path: .agents/skills/simplify-codebase/SKILL.md
+      author: tt-a1i
+      declared_license: Apache-2.0
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt)
+      supporting_directories: []
+      tools:
+        - Glob
+        - Grep
+        - Read
+        - Edit
+
+  - id: SKILL08-TST-001
+    name: browser-testing-with-devtools
+    display_name: Browser Testing with DevTools
+    category: Testing and Browser Automation
+    tier: Group A (v0.1)
+    description: Automated browser UI verification, layout shift detection, and accessibility inspection using Chrome DevTools Protocol.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/browser-testing-with-devtools/SKILL.md
+      global_path: ~/.gemini/config/skills/browser-testing-with-devtools/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream skills/browser-testing-with-devtools/ to .agents/skills/browser-testing-with-devtools/.
+    upstream_provenance:
+      repository_url: https://github.com/addyosmani/agent-skills.git
+      commit_sha: 39b723ceebf81474d0557c1fecd01eddab585563
+      source_file_path: skills/browser-testing-with-devtools/SKILL.md
+      author: Addy Osmani
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: Chrome / Antigravity Browser Subagent
+      supporting_directories:
+        - references/
+      tools:
+        - Browser
+        - Read
+        - Write
+
+  - id: SKILL08-SWE-003
+    name: debugging-and-error-recovery
+    display_name: Hypothesis-Driven Debugging
+    category: Software Engineering
+    tier: Group A (v0.1)
+    description: Systematic, hypothesis-driven debugging workflow enforcing reproduction, binary search isolation, and minimal surgical repair.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/debugging-and-error-recovery/SKILL.md
+      global_path: ~/.gemini/config/skills/debugging-and-error-recovery/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Packaging-compatible
+      adaptation_requirements: Relocation from upstream skills/debugging-and-error-recovery/ to .agents/skills/debugging-and-error-recovery/.
+    upstream_provenance:
+      repository_url: https://github.com/addyosmani/agent-skills.git
+      commit_sha: 39b723ceebf81474d0557c1fecd01eddab585563
+      source_file_path: skills/debugging-and-error-recovery/SKILL.md
+      author: Addy Osmani
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt)
+      supporting_directories:
+        - references/
+      tools:
+        - Read
+        - Edit
+        - TestRunners
+
+  - id: SKILL08-ARC-001
+    name: archify
+    display_name: Archify Standalone Diagramming
+    category: Architecture and System Design
+    tier: Group A (v0.1)
+    description: Generates checked standalone interactive HTML diagrams (architecture, sequence, ERD) and comprehensive one-page visual explainers.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/archify/SKILL.md
+      global_path: ~/.gemini/config/skills/archify/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Adaptation-required
+      adaptation_requirements: Relocate to .agents/skills/archify/ and normalize Node.js CLI execution path (bin/archify.mjs) for Windows PowerShell environments.
+    upstream_provenance:
+      repository_url: https://github.com/tt-a1i/archify.git
+      commit_sha: a7ed6fd6657da90414831d1d42cf95987188750c
+      source_file_path: archify/SKILL.md
+      author: tt-a1i
+      declared_license: Apache-2.0
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: Node.js (for bin/archify.mjs finalize)
+      supporting_directories:
+        - references/
+      tools:
+        - RunCommand (Node)
+        - Read
+        - Write
+
+  - id: SKILL08-FE-002
+    name: scroll-craft
+    display_name: Scroll-Craft Interactive Storytelling
+    category: Frontend Development
+    tier: Group A (v0.1)
+    description: Builds interactive scrollytelling timelines, layered dimensional heroes, and scroll-scrubbed product pages.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/scroll-craft/SKILL.md
+      global_path: ~/.gemini/config/skills/scroll-craft/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Adaptation-required
+      adaptation_requirements: Strip non-standard Claude allowed-tools parameter from frontmatter. Relocate from plugins/nateherk-design/skills/ to .agents/skills/scroll-craft/.
+    upstream_provenance:
+      repository_url: https://github.com/nateherkai/scroll-craft.git
+      commit_sha: 75d81f74e83692add18cd7a8a8e078b8a887a579
+      source_file_path: plugins/nateherk-design/skills/scroll-craft/SKILL.md
+      author: Nate Herk
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure prompt)
+      supporting_directories:
+        - references/
+      tools:
+        - Read
+        - Write
+        - Edit
+
+  - id: SKILL08-UI-003
+    name: impeccable
+    display_name: Impeccable Design Director
+    category: UI/UX and Design Systems
+    tier: Group A (v0.1)
+    description: Full-lifecycle design director craft organized across 4 operational modes (Persuade, Operate, Read, Experience) in pure-instruction mode.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/impeccable/SKILL.md
+      global_path: ~/.gemini/config/skills/impeccable/SKILL.md
+      approval_status: Provisional Candidate - Not approved for redistribution
+    compatibility:
+      status: Adaptation-required
+      adaptation_requirements: Extract canonical skill from .agents/skills/impeccable/SKILL.md. Configure instructions to strictly enforce the documented pure-instruction fallback, eliminating unvetted binary launcher execution.
+    upstream_provenance:
+      repository_url: https://github.com/pbakaus/impeccable.git
+      commit_sha: d41d9860b0094dcb68030657da63461212835aaa
+      source_file_path: .agents/skills/impeccable/SKILL.md
+      author: Paul Bakaus
+      declared_license: Apache-2.0
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: None (pure instruction fallback mode)
+      supporting_directories:
+        - reference/
+      tools:
+        - Read
+        - Edit
+
+  - id: SKILL08-UI-004
+    name: open-pencil
+    display_name: OpenPencil Vector & Figma Automation
+    category: UI/UX and Design Systems
+    tier: Group B (Future)
+    description: Programmatic inspection, variable formula editing, and asset export from Figma .fig files via local CLI/MCP.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/open-pencil/SKILL.md
+      global_path: ~/.gemini/config/skills/open-pencil/SKILL.md
+      approval_status: Provisional Candidate - Deferred to v0.2
+    compatibility:
+      status: Adaptation-required
+      adaptation_requirements: Requires external Bun runtime and global packages (@open-pencil/cli, @open-pencil/mcp). High dependency burden; deferred to future release.
+    upstream_provenance:
+      repository_url: https://github.com/open-pencil/open-pencil.git
+      commit_sha: 50afc5cb789257338cd4102235ab16d9ade458f3
+      source_file_path: skills/open-pencil/SKILL.md
+      author: Danila Poyarkov
+      declared_license: MIT
+      inventory_status: Inventoried (Unmodified source)
+      license_verification_status: Pending Deliverable 3 (LICENSE_MATRIX.md)
+      security_audit_status: Pending Deliverable 5 (SECURITY_AUDIT.md)
+    operational_requirements:
+      runtime: External Bun toolchain (@open-pencil/cli, @open-pencil/mcp)
+      supporting_directories: []
+      tools:
+        - RunCommand

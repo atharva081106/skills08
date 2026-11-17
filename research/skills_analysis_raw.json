@@ -1,0 +1,13 @@
+{
+  "total_physical": 2031,
+  "total_unique_hashes": 1795,
+  "redundant_copies": 236,
+  "cross_repo_duplicates": [],
+  "intra_repo_redundancy": {
+    "antigravity-skills": 1,
+    "ecc": 139,
+    "hyperframes": 6,
+    "impeccable": 2,
+    "open-design": 88
+  }
+}

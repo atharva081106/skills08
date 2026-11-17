@@ -1,0 +1,351 @@
+[
+  {
+    "repo": "humanizer",
+    "rel_path": "SKILL.md",
+    "sha256": "804a119e924ac30295b298213e0b71b3e38b2667b8ef4fb7b69e9246369b9045",
+    "size_bytes": 32355,
+    "line_count": 498,
+    "word_count": 5226,
+    "frontmatter": {
+      "name": "humanizer",
+      "description": "Rewrite AI-sounding text so it reads like the writer without changing what it says.\nUse when editing or reviewing prose for AI tells: not-X-but-Y contrasts, one-line\nclosers, staged openers, forced triads, dashes everywhere, inflated claims, sales\nlanguage, stock AI words, bold labels, or filler.\n",
+      "version": "",
+      "license": "MIT",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": true,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Humanizer: remove AI writing patterns",
+      "## Why AI text sounds the way it does",
+      "## How to work",
+      "### Voice",
+      "### What to return"
+    ]
+  },
+  {
+    "repo": "security-audit-skill",
+    "rel_path": "skills\\security-audit\\SKILL.md",
+    "sha256": "5e3e96a1e438d8f35fef0a1e38f02d4f00e2bdf910401b7dfe00e6779c6dac85",
+    "size_bytes": 21990,
+    "line_count": 192,
+    "word_count": 3115,
+    "frontmatter": {
+      "name": "security-audit",
+      "description": "Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries, and daemons. Use for security questions, focused reviews, vulnerability research, security audits, or pen tests. Run the complete workflow only for explicit codebase audit or pen-test requests, full/comprehensive/end-to-end reviews, or requested report artifacts.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Security Audit",
+      "## Operating modes",
+      "## Platform terminology",
+      "## Universal execution safety",
+      "## Full audit setup"
+    ]
+  },
+  {
+    "repo": "unslop",
+    "rel_path": "skills\\unslop\\SKILL.md",
+    "sha256": "54e74d73afedb70dd556495f03a13ab7a5724b948cad20c3c7452684f3cb65e9",
+    "size_bytes": 32044,
+    "line_count": 236,
+    "word_count": 5719,
+    "frontmatter": {
+      "name": "unslop",
+      "description": "Turns vibecoded, AI-looking UI into a designed interface with its own character. Finds a direction from the product itself, then fixes spacing, color, icons, copy, type, layout, details, visuals and motion in that order, and can generate a real hero visual with an image tool when one is available. Use when the user asks to unslop, polish, clean up or redesign a screen so it stops looking AI-generated, or when a UI shows the usual tells like purple gradients, glows, gradient text, emoji labels, \"New \u2728\" badges, glossy blobs, uppercase tracked labels, pulsing elements or uneven spacing. Works on React, Tailwind, HTML and CSS, for dashboards, apps and landing pages.",
+      "version": "",
+      "license": "CC-BY-4.0",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": true,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Unslop",
+      "## What good looks like",
+      "## Run it",
+      "## Direction",
+      "## 1. Spacing"
+    ]
+  },
+  {
+    "repo": "hallmark",
+    "rel_path": "skills\\hallmark\\SKILL.md",
+    "sha256": "25a1ff92d925b2389e8409f42fb8ad7e033fceca8b5d1f07ed4ca4c28da53dc3",
+    "size_bytes": 18168,
+    "line_count": 154,
+    "word_count": 2889,
+    "frontmatter": {
+      "name": "hallmark",
+      "description": "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`.",
+      "version": "2.0.0",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": true,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Hallmark",
+      "## The Floor",
+      "## Flow",
+      "### 0. Pre-flight",
+      "### 1. Ask once"
+    ]
+  },
+  {
+    "repo": "taste-skill",
+    "rel_path": "skills\\taste-skill\\SKILL.md",
+    "sha256": "0c7a5852a5217be79cab422c6d58329b776f0c25bd6da8a7a01707ce75be6206",
+    "size_bytes": 30968,
+    "line_count": 381,
+    "word_count": 4683,
+    "frontmatter": {
+      "name": "design-taste-frontend",
+      "description": "tasteskill 2.5.1, the anti-slop frontend skill. Builds professional company websites at the level of figma.com and x.ai: plain copy in a voice of its own, one system, one section per screen, equal edges, real photographs and real product UI (licensed stand-in photographs when the client has none; a product render only when the brief asks for 3D), a hero entrance and one or two dealt moments on every page, shader effects and scenes only on tech, gaming and software pages, quiet micro-interactions, and a checker and finish gate that enforce it in a real browser. Use this whenever you build, design, redesign, restyle, polish or review a landing page, company, product, shop, cafe, hotel, studio, SaaS, AI, developer-tool or game site, as static HTML/CSS or inside an existing React, Next.js, Vue, Svelte, Astro or Tailwind project, or when the user says a page looks generic, templated or \"AI-made\".",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": true
+    },
+    "has_scripts": true,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# tasteskill 2.5",
+      "## House rules",
+      "## 1. The kind of business decides everything",
+      "## 2. The page plan by kind",
+      "## 3. What serves which page"
+    ]
+  },
+  {
+    "repo": "agent-skills",
+    "rel_path": "skills\\code-simplification\\SKILL.md",
+    "sha256": "e13b433345e6bf425c3625442ac1b3507b371c18d7ea3e3db822da7a7f742a29",
+    "size_bytes": 13671,
+    "line_count": 331,
+    "word_count": 2060,
+    "frontmatter": {
+      "name": "code-simplification",
+      "description": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity. Use when asked to simplify, clean up, or reduce the nesting of a function or module that already works, even when the code is pasted inline and nothing else needs to change.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Code Simplification",
+      "## Overview",
+      "## When to Use",
+      "## The Five Principles",
+      "### 1. Preserve Behavior Exactly"
+    ]
+  },
+  {
+    "repo": "agent-skills",
+    "rel_path": "skills\\browser-testing-with-devtools\\SKILL.md",
+    "sha256": "e28dd45416e6df93f0db6fffeb3aa2477a0e48a22f8e05fd5bb1892484115bb6",
+    "size_bytes": 14036,
+    "line_count": 319,
+    "word_count": 2154,
+    "frontmatter": {
+      "name": "browser-testing-with-devtools",
+      "description": "Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires the chrome-devtools MCP server to be configured.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Browser Testing with DevTools",
+      "## Overview",
+      "## When to Use",
+      "## Setting Up Chrome DevTools MCP",
+      "### Installation"
+    ]
+  },
+  {
+    "repo": "agent-skills",
+    "rel_path": "skills\\debugging-and-error-recovery\\SKILL.md",
+    "sha256": "95e393819043b50b3ba6f4d89f0fea620d03e560eb52b592b3eb7a41836aaea1",
+    "size_bytes": 10801,
+    "line_count": 300,
+    "word_count": 1743,
+    "frontmatter": {
+      "name": "debugging-and-error-recovery",
+      "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why \u2014 a systematic approach to finding and fixing the root cause rather than guessing. Use when asked what broke, why a test started failing, or why code throws, even when the diff, the function, or the stack trace is pasted inline and the cause looks obvious from reading it, so that the cause is named, the fix is minimal, and the reply says how to confirm it.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Debugging and Error Recovery",
+      "## Overview",
+      "## When to Use",
+      "## The Stop-the-Line Rule",
+      "## The Triage Checklist"
+    ]
+  },
+  {
+    "repo": "archify",
+    "rel_path": ".agents\\skills\\archify-review\\SKILL.md",
+    "sha256": "811eb78d69360b741475053a08a0060e60126af2405ffa24afdc0498f17b6cb8",
+    "size_bytes": 1658,
+    "line_count": 22,
+    "word_count": 218,
+    "frontmatter": {
+      "name": "archify-review",
+      "description": "Review Archify issues, PRs, or code through value, cost, and impact to support evidence-based maintenance decisions. Use for issue triage, change reviews, and code quality assessments.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": false,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Archify Review"
+    ]
+  },
+  {
+    "repo": "archify",
+    "rel_path": ".agents\\skills\\simplify-codebase\\SKILL.md",
+    "sha256": "22bde2ab929b077da49000fb5a2479ed3fd8cb74d4e6d904c01d65efafb936fa",
+    "size_bytes": 6921,
+    "line_count": 83,
+    "word_count": 889,
+    "frontmatter": {
+      "name": "simplify-codebase",
+      "description": "Simplification audit or authorized codebase simplification whose stated objective is to remove accidental complexity. Use for evidence-backed deletion or consolidation of dead code, duplicate state, redundant APIs or layers, ownerless abstractions, obsolete compatibility or design records, and over-engineering in any language; also use for \u4ee3\u7801\u7b80\u5316 or \u71b5\u56de\u6536. Do not use for general code review, onboarding, style-only refactoring, or performance tuning.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# Simplify Codebase",
+      "## Select mode and scope",
+      "## Establish the contract",
+      "## Cover the relevant surface",
+      "## Build a proof record"
+    ]
+  },
+  {
+    "repo": "scroll-craft",
+    "rel_path": "plugins\\nateherk-design\\skills\\scroll-craft\\SKILL.md",
+    "sha256": "6e798bb51c3dcbe4f35f098dcdd3cdd20d08e538a33993bcae909c9fd0a500a1",
+    "size_bytes": 24987,
+    "line_count": 460,
+    "word_count": 3923,
+    "frontmatter": {
+      "name": "scroll-craft",
+      "description": "Build premium scroll-driven landing pages for service, product, food, and drink brands. Plan the visitor journey, page grammar, emotional peak, and bespoke signature move. Create dimensional heroes with independent visual planes, restrained motion, and separate mobile composition. Use supplied photos and footage or generate photoreal assets through kie.ai, write semantic HTML, and verify desktop, mobile, and reduced-motion scroll states visually. Use for \"scrollcraft\", \"scroll craft\", \"layered hero\", \"premium hero\", \"cinematic hero\", \"scrollytelling\", \"scroll animation site\", \"a site where scrolling plays a video\", \"Apple-style landing page\", \"3D scroll world\", \"interactive landing page\", \"make my brand a scroll experience\", \"this looks like a template\", or requests for a distinctive website that feels like an experience rather than a document.\n",
+      "version": "",
+      "license": "",
+      "allowed_tools": "Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion",
+      "hooks": false
+    },
+    "has_scripts": true,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# scroll-craft",
+      "## What this is not",
+      "## Standing hero preference",
+      "## Approved collection standard",
+      "## Step 0: The brief and creative authority"
+    ]
+  },
+  {
+    "repo": "impeccable",
+    "rel_path": ".agent\\skills\\impeccable\\SKILL.md",
+    "sha256": "8dae31cd4f2ebc0f78e2072b15e29ddd1f897618a03f96eb63359f8c9761a054",
+    "size_bytes": 12860,
+    "line_count": 91,
+    "word_count": 1722,
+    "frontmatter": {
+      "name": "impeccable",
+      "description": "Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, animate, or otherwise improve a frontend interface: websites, landing pages, dashboards, product UI, components, forms, settings, onboarding, empty states, and native iOS or Android screens. Handles UX review, hierarchy, layout, typography, color, motion, UX copy, accessibility, responsive behavior, edge cases, and capturing or documenting design systems (DESIGN.md, tokens). Also for making bland UI bolder, loud UI quieter, or ambitious visual effects. Not for backend-only or non-UI tasks.",
+      "version": "4.9.2",
+      "license": "Apache 2.0",
+      "allowed_tools": [
+        "Bash(npx impeccable *)",
+        "Bash(.agent/skills/impeccable/scripts/impeccable *)"
+      ],
+      "hooks": false
+    },
+    "has_scripts": true,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "## Setup",
+      "## How to design",
+      "## Modes",
+      "## Commands"
+    ]
+  },
+  {
+    "repo": "open-pencil",
+    "rel_path": "skills\\open-pencil\\SKILL.md",
+    "sha256": "5536dd68ff9d33ab1744a62fd9f08e6b3207c0ff33c5356878ef13772b6d2a3c",
+    "size_bytes": 22684,
+    "line_count": 363,
+    "word_count": 3106,
+    "frontmatter": {
+      "name": "open-pencil",
+      "description": "Work with Figma .fig design files and the running OpenPencil editor \u2014 inspect structure, query nodes, analyze design tokens, export PNG/SVG/PDF/JSX, and modify designs programmatically. Use when asked to open, inspect, export, analyze, or edit .fig files, or to control the running OpenPencil app.",
+      "version": "",
+      "license": "",
+      "allowed_tools": "",
+      "hooks": false
+    },
+    "has_scripts": false,
+    "has_refs": true,
+    "has_examples": false,
+    "has_resources": false,
+    "sample_headings": [
+      "# OpenPencil",
+      "# App mode \u2014 operates on the document open in the editor",
+      "# Headless mode \u2014 operates on a .fig file",
+      "## Variable formulas",
+      "## Requirements"
+    ]
+  }
+]
