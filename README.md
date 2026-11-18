@@ -7,7 +7,7 @@
 An open-source, local-first distribution platform, authoring framework, and lifecycle manager for AI agent skills.
 
 [![CI](https://github.com/atharva081106/skills08/actions/workflows/ci.yml/badge.svg)](https://github.com/atharva081106/skills08/actions/workflows/ci.yml)
-[![Tests](https://img.shields.io/badge/tests-50%20passing%20%28100%25%29-brightgreen.svg?style=flat-square)](https://github.com/atharva081106/skills08)
+[![Tests](https://img.shields.io/badge/tests-51%20passing%20%28100%25%29-brightgreen.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Python](https://img.shields.io/badge/python-3.8%20%7C%203.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE)
@@ -109,6 +109,7 @@ All 12 Group A skills are pre-packaged, conflict-free, and cryptographically loc
 | **`SKILL08-TST-001`** | **`browser-testing-with-devtools`** | 🧪 Testing | Automated browser interaction, DOM inspection, and DevTools console workflows |
 | **`SKILL08-SWE-003`** | **`debugging-and-error-recovery`** | 🐛 Debugging | Systematic root-cause analysis, reproduction playbooks, and patch verification |
 | **`SKILL08-ARC-001`** | **`archify`** | 🏛️ Architecture | Structured Architecture Decision Records (ADRs) and system modeling |
+| **`SKILL08-ARC-002`** | **`understand-anything`** | 🗺️ Architecture & Intelligence | Generates interactive codebase knowledge graphs, component maps, and domain tours across 14+ languages |
 | **`SKILL08-FE-002`** | **`scroll-craft`** | 🎨 Frontend | High-performance CSS/JS scroll interactions and scroll-triggered animations |
 | **`SKILL08-UI-003`** | **`impeccable`** | 🎨 UI/UX Design | Polish heuristics for design tokens, typography, and interactive micro-states |
 
@@ -237,20 +238,20 @@ python tests/run_all_tests.py
 ```
 
 ### Verified Test Summary:
-- **Total Tests**: 50
-- **Passed**: 50 (100.0%)
+- **Total Tests**: 51
+- **Passed**: 51 (100.0%)
 - **Failures / Errors**: 0
-- **Execution Time**: ~14.2s
+- **Execution Time**: ~15.5s
 
 ```text
 ======================================================================
 SKILLS08 PHASE 1 TEST SUITE EXECUTION SUMMARY:
-Total Tests Run: 50
-Passed:          50 (100.0%)
+Total Tests Run: 51
+Passed:          51 (100.0%)
 Failures:        0
 Errors:          0
 Skipped:         0
-Execution Time:  14.287s
+Execution Time:  15.531s
 Overall Status:  PASS
 ======================================================================
 ```

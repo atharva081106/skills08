@@ -15,9 +15,29 @@ class Catalog:
     def __init__(self, packages_dir: str = PACKAGES_DIR, manifest_path: Optional[str] = None):
         loader = ManifestLoader(manifest_path) if manifest_path else ManifestLoader()
         self.candidates = loader.load()
+
+        # Load extension candidates if manifest_path was not explicitly overridden
+        if not manifest_path:
+            self._load_extensions()
+
         self.candidates_by_id: Dict[str, Candidate] = {c.id: c for c in self.candidates}
         self.candidates_by_name: Dict[str, Candidate] = {c.name: c for c in self.candidates}
         self.packages_dir = Path(packages_dir)
+
+    def _load_extensions(self) -> None:
+        """Load community and extension skills from manifests/extensions.yaml if present."""
+        from .constants import REPO_ROOT
+        ext_path = REPO_ROOT / "manifests" / "extensions.yaml"
+        if ext_path.exists():
+            try:
+                ext_loader = ManifestLoader(str(ext_path))
+                ext_cands = ext_loader.load()
+                existing_ids = {c.id for c in self.candidates}
+                for c in ext_cands:
+                    if c.id not in existing_ids:
+                        self.candidates.append(c)
+            except Exception:
+                pass
 
     def get_by_id(self, candidate_id: str) -> Optional[Candidate]:
         return self.candidates_by_id.get(candidate_id)

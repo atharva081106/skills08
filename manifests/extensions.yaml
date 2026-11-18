@@ -1,0 +1,45 @@
+# Skills08 Community & Extended Skills Manifest
+# Extension catalog for community-contributed and ecosystem skills.
+
+metadata:
+  platform: Skills08
+  extension_tier: Community
+
+candidates:
+  - id: SKILL08-ARC-002
+    name: understand-anything
+    display_name: Understand Anything (Codebase Knowledge Graph)
+    category: Architecture and Codebase Intelligence
+    tier: Community / Extension
+    description: Analyzes codebases across 14+ programming languages to produce interactive architectural knowledge graphs, component relationship maps, domain boundaries, and guided onboarding tours.
+    distribution_metadata:
+      target_agent: Google Antigravity
+      workspace_path: .agents/skills/understand-anything/SKILL.md
+      global_path: ~/.gemini/config/skills/understand-anything/SKILL.md
+      approval_status: Approved Community Extension
+    compatibility:
+      status: Model A Compatible
+      operational_model: Companion-File Guidance Mode
+      target_environment: Windows / POSIX Cross-Platform
+      runtime_dependencies: None (Standard Library)
+    upstream_provenance:
+      repository_url: https://github.com/Egonex-AI/Understand-Anything.git
+      commit_sha: bb70fdb0489f8839ce55bf99dae0125ea067f712
+      source_file_path: understand-anything-plugin/skills/understand/SKILL.md
+      author: Yuxiang Lin / Infinite Universe, Inc.
+      declared_license: MIT
+      inventory_status: ACTIVE
+    operational_requirements:
+      supporting_files:
+        - NOTICE.md
+        - SKILL.md
+        - frameworks/
+        - languages/
+        - locales/
+    license_clearance:
+      tier: Tier 1: Standard Clearance (MIT)
+      declared_license: MIT
+    security_audit:
+      status: Passed (Model A Guidance Mode)
+      findings_count: 0
+      guidelines: Configured for Model A Companion Guidance Mode. The AI agent executes cognitive analysis playbooks and language references without requiring unvetted background daemons.

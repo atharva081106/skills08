@@ -231,7 +231,23 @@ class TestFullFledgedFeatures(unittest.TestCase):
         self.assertEqual(res.returncode, EXIT_SUCCESS)
         data = json.loads(res.stdout)
         self.assertIsInstance(data, list)
-        self.assertEqual(len(data), 13)
+        self.assertEqual(len(data), 14)
+
+    def test_understand_anything_curation_and_installation(self):
+        """Verify understand-anything candidate is present, installable, and verifies cleanly."""
+        cand = self.installer.catalog.find("understand-anything")
+        self.assertIsNotNone(cand, "understand-anything not found in catalog")
+        self.assertEqual(cand.id, "SKILL08-ARC-002")
+        self.assertEqual(cand.provenance.declared_license, "MIT")
+
+        success, msg = self.installer.install("understand-anything", scope="project")
+        self.assertTrue(success, f"Failed to install understand-anything: {msg}")
+
+        dest = self.workspace / ".agents" / "skills" / "understand-anything"
+        self.assertTrue(dest.exists())
+        self.assertTrue((dest / "SKILL.md").exists())
+        self.assertTrue((dest / "NOTICE.md").exists())
+        self.assertTrue((dest / "languages" / "python.md").exists())
 
     def test_multi_agent_sync_projection(self):
         """Verify sync projects skills to Cursor, Claude, Copilot, Windsurf, Cline, and Gemini."""
