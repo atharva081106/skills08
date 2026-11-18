@@ -18,6 +18,14 @@ from .constants import (
     LOCK_FILE_NAME
 )
 
+def _is_relative_to(path: Path, base: Path) -> bool:
+    """Compatibility check for Python < 3.9 where Path.is_relative_to() does not exist."""
+    try:
+        path.relative_to(base)
+        return True
+    except (ValueError, AttributeError):
+        return False
+
 class Installer:
     """Installs, uninstalls, and tracks skills across project and global scopes."""
 
@@ -130,7 +138,7 @@ class Installer:
             target_root_resolved = target_root.resolve()
             
             # Defense against escaping root or targeting root itself
-            if not skill_dest_resolved.is_relative_to(target_root_resolved) or skill_dest_resolved == target_root_resolved:
+            if not _is_relative_to(skill_dest_resolved, target_root_resolved) or skill_dest_resolved == target_root_resolved:
                 return False, f"Security violation: path traversal detected for destination '{skill_dest}'."
         except Exception as e:
             return False, f"Path resolution error: {e}"
@@ -180,7 +188,7 @@ class Installer:
         try:
             skill_dir_resolved = skill_dir.resolve()
             target_root_resolved = target_root.resolve()
-            if not skill_dir_resolved.is_relative_to(target_root_resolved) or skill_dir_resolved == target_root_resolved:
+            if not _is_relative_to(skill_dir_resolved, target_root_resolved) or skill_dir_resolved == target_root_resolved:
                 return False, f"Security violation: path traversal detected for '{skill_dir}'."
         except Exception as e:
             return False, f"Path resolution error: {e}"

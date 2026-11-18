@@ -92,7 +92,12 @@ class TestInstallerLifecycle(unittest.TestCase):
         # Under Path.is_relative_to(), it is correctly rejected as outside target root.
         target_root = self.installer.get_target_root("project")
         outside_sibling = target_root.parent / f"{target_root.name}_sibling_attack"
-        self.assertFalse(outside_sibling.is_relative_to(target_root))
+        try:
+            outside_sibling.relative_to(target_root)
+            is_relative = True
+        except ValueError:
+            is_relative = False
+        self.assertFalse(is_relative)
 
     def test_uninstall_invalid_names_regression(self):
         """Regression test for DEF-FUN-001: verify uninstall rejects empty, dot, or slash names."""
