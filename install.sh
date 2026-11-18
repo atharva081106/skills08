@@ -32,3 +32,4 @@ echo "  skills08 doctor                     # Verify your environment"
 echo "  skills08 list                       # Browse 12 production skills"
 echo "  skills08 install security-audit -s  # Install & sync across Cursor, Claude, Antigravity"
 echo ""
+

@@ -37,3 +37,4 @@ If you discover a potential security vulnerability in Skills08:
    - Impact assessment on host environments or agent execution.
 
 We will acknowledge receipt within 48 hours and work with you on a coordinated disclosure timeline.
+

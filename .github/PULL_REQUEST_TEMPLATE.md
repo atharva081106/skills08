@@ -14,3 +14,4 @@ Brief summary of the changes proposed in this Pull Request.
 - [ ] No hardcoded credentials, tokens, or personal identifiers
 - [ ] Adheres to Model A instruction safety (zero arbitrary subprocess execution)
 - [ ] Multi-agent bridge projection verified across Cursor, Claude, Antigravity, and Copilot
+

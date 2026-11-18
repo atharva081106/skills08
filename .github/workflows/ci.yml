@@ -35,3 +35,4 @@ jobs:
       - name: Run Master Verification Suite (50 Tests)
         run: |
           python tests/run_all_tests.py
+

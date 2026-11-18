@@ -84,3 +84,4 @@ When contributing code or new CLI features:
 - [ ] No hardcoded credentials or API keys.
 - [ ] All 50 tests pass (`python tests/run_all_tests.py`).
 - [ ] Documentation updated if introducing new CLI flags or commands.
+

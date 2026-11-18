@@ -56,3 +56,4 @@ body:
       options:
         - label: This skill operates purely via cognitive instructions or companion playbooks (no unvetted background binaries/daemons).
           required: true
+

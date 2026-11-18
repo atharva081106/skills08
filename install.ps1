@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Skills08 One-Line Windows Installer
 .DESCRIPTION
@@ -63,3 +63,4 @@ try {
     Write-Host "[WARN] 'skills08' command not found in current session PATH." -ForegroundColor Yellow
     Write-Host "Please restart your terminal or run: python -m skills08.cli" -ForegroundColor Yellow
 }
+
