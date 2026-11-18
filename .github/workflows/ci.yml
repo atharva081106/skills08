@@ -30,9 +30,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e .
+          pip install -e ".[dev]"
 
-      - name: Run Master Verification Suite (50 Tests)
+      - name: Run Master Verification Suite (51 Tests)
         run: |
           python tests/run_all_tests.py
 

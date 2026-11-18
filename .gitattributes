@@ -1,0 +1,15 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Cryptographically pinned Phase 1 research baselines (preserve exact checkout line endings)
+docs/research/SOURCE_INVENTORY.md text eol=crlf
+docs/research/SKILLS_EXTRACTION.md text eol=lf
+docs/research/LICENSE_MATRIX.md text eol=crlf
+docs/research/COMPATIBILITY_MATRIX.md text eol=lf
+docs/research/SECURITY_AUDIT.md text eol=lf
+docs/research/SECURITY_AUDIT_CORRECTION_REPORT.md text eol=lf
+manifests/manifest.yaml text eol=crlf
+research/final_reconciled_ledger.json text eol=crlf
+docs/research/CONFLICT_ANALYSIS.md text eol=crlf
+docs/research/D6_FINAL_VERIFICATION_REPORT.md text eol=crlf
+
