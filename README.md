@@ -6,12 +6,14 @@
 
 An open-source, local-first distribution platform, authoring framework, and lifecycle manager for AI agent skills.
 
+[![CI](https://github.com/atharva081106/skills08/actions/workflows/ci.yml/badge.svg)](https://github.com/atharva081106/skills08/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/tests-50%20passing%20%28100%25%29-brightgreen.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Python](https://img.shields.io/badge/python-3.8%20%7C%203.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-zero%20third--party-orange.svg?style=flat-square)](https://github.com/atharva081106/skills08)
+[![Share on X](https://img.shields.io/badge/share-on%20X-black.svg?style=flat-square&logo=x)](https://twitter.com/intent/tweet?text=Skills08%20%E2%80%94%20The%20open-source%20package%20manager%20for%20AI%20coding%20agents%20https://github.com/atharva081106/skills08)
 
 <p align="center">
   <a href="#-quickstart">Quickstart</a> •
@@ -114,24 +116,28 @@ All 12 Group A skills are pre-packaged, conflict-free, and cryptographically loc
 
 ## 🚀 Quickstart
 
-### 1. Installation
+### ⚡ Instant One-Line Installers
 
-#### Option A: Pip Install (Recommended)
+#### Windows PowerShell:
+```powershell
+irm https://raw.githubusercontent.com/atharva081106/skills08/main/install.ps1 | iex
+```
+
+#### macOS / Linux:
+```bash
+curl -fsSL https://raw.githubusercontent.com/atharva081106/skills08/main/install.sh | bash
+```
+
+#### Via Pip (Direct from GitHub):
+```bash
+pip install git+https://github.com/atharva081106/skills08.git
+```
+
+#### Or Clone & Install Manually:
 ```bash
 git clone https://github.com/atharva081106/skills08.git
 cd skills08
 pip install -e .
-```
-
-#### Option B: Windows Native PowerShell (Zero Installation)
-```powershell
-.\skills08.ps1 doctor
-.\skills08.ps1 list
-```
-
-#### Option C: Portable Python
-```bash
-python skills08.py list
 ```
 
 ---

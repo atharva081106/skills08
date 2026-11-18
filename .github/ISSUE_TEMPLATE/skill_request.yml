@@ -1,0 +1,58 @@
+name: 💡 New Skill Request
+description: Propose a new cognitive skill to be curated and packaged into Skills08
+title: "[Skill]: <Skill Name>"
+labels: ["skill-request", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new skill! Skills08 curates supply-chain-hardened skills for AI coding agents.
+
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill Name
+      description: Proposed name in lowercase kebab-case (e.g. `fastapi-optimization`, `tailwind-refactor`).
+      placeholder: e.g. react-performance
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Skill Purpose & Use Cases
+      description: What specific tasks or workflows does this skill empower AI agents to solve?
+      placeholder: "Teaches coding agents to identify and resolve unnecessary React re-renders, optimize useMemo/useCallback..."
+    validations:
+      required: true
+
+  - type: input
+    id: upstream_source
+    attributes:
+      label: Upstream Source Repository (Optional)
+      description: If this skill is adapted from an existing open-source project or repository, link it here.
+      placeholder: https://github.com/org/repo
+
+  - type: dropdown
+    id: target_category
+    attributes:
+      label: Category
+      description: Select the primary category for this skill.
+      options:
+        - Security & Vulnerability Audit
+        - Code Quality & Refactoring
+        - UI/UX & Design Systems
+        - Architecture & System Design
+        - Testing & DevTools
+        - Documentation & Prose
+        - DevOps & Infrastructure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety_compliance
+    attributes:
+      label: Model A Safety Compliance
+      options:
+        - label: This skill operates purely via cognitive instructions or companion playbooks (no unvetted background binaries/daemons).
+          required: true

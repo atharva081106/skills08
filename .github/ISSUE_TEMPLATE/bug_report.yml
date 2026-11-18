@@ -1,0 +1,52 @@
+name: 🐛 Bug Report
+description: Report a bug, crash, or unexpected behavior in Skills08
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Skills08! Please provide clear details below.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Current Behavior
+      description: What went wrong? Include exact error messages or unexpected output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Provide step-by-step commands to reproduce the issue.
+      placeholder: |
+        1. Run 'skills08 install ...'
+        2. Execute 'skills08 sync'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Paste the output of `skills08 doctor` (or Python version and OS).
+      render: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target_agent
+    attributes:
+      label: Affected AI Coding Agent (if applicable)
+      options:
+        - None / General CLI
+        - Google Antigravity
+        - Cursor (.cursor/rules)
+        - Claude Code (CLAUDE.md)
+        - GitHub Copilot (.github/copilot-instructions.md)
+        - Windsurf (.windsurfrules)
+        - Cline / Roo Code (.clinerules)
+        - Gemini CLI (GEMINI.md)
