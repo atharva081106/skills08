@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f293d"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="coreGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="50%" stop-color="#bc8cff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 20px; font-weight: 700; fill: #f0f6fc; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; fill: #8b949e; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 600; fill: #f0f6fc; }
+    .card-desc { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #7ee787; }
+    .flow-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 600; fill: #58a6ff; }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect width="960" height="480" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Top Title Bar -->
+  <text x="480" y="42" text-anchor="middle" class="title">SKILLS08 ARCHITECTURE &amp; UNIVERSAL PROJECTION</text>
+  <text x="480" y="64" text-anchor="middle" class="subtitle">From Curated Vetted Repositories to Multi-Agent Execution Environments</text>
+
+  <!-- Left: Upstream Curated Layer -->
+  <g transform="translate(40, 100)">
+    <rect width="210" height="340" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="105" y="32" text-anchor="middle" class="card-title">1. UPSTREAM SOURCES</text>
+    <line x1="20" y1="46" x2="190" y2="46" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Source Items -->
+    <g transform="translate(16, 64)">
+      <rect width="178" height="48" rx="8" fill="#161b22" stroke="#388bfd" stroke-width="1"/>
+      <text x="14" y="22" font-family="sans-serif" font-size="12px" font-weight="600" fill="#f0f6fc">Anthropics Official</text>
+      <text x="14" y="38" font-family="monospace" font-size="10px" fill="#8b949e">anthropics/skills</text>
+    </g>
+
+    <g transform="translate(16, 126)">
+      <rect width="178" height="48" rx="8" fill="#161b22" stroke="#bc8cff" stroke-width="1"/>
+      <text x="14" y="22" font-family="sans-serif" font-size="12px" font-weight="600" fill="#f0f6fc">Egonex Knowledge</text>
+      <text x="14" y="38" font-family="monospace" font-size="10px" fill="#8b949e">understand-anything</text>
+    </g>
+
+    <g transform="translate(16, 188)">
+      <rect width="178" height="48" rx="8" fill="#161b22" stroke="#2ea043" stroke-width="1"/>
+      <text x="14" y="22" font-family="sans-serif" font-size="12px" font-weight="600" fill="#f0f6fc">Community Vetted</text>
+      <text x="14" y="38" font-family="monospace" font-size="10px" fill="#8b949e">19 Locked Repositories</text>
+    </g>
+
+    <g transform="translate(16, 252)">
+      <rect width="178" height="64" rx="8" fill="#1f242c" stroke="#d29922" stroke-width="1"/>
+      <text x="14" y="22" font-family="sans-serif" font-size="11.5px" font-weight="600" fill="#e3b341">Cryptographic Pinning</text>
+      <text x="14" y="38" font-family="monospace" font-size="9.5px" fill="#8b949e">Immutable Git SHAs</text>
+      <text x="14" y="52" font-family="monospace" font-size="9.5px" fill="#8b949e">Strict License Tiers</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow Left -> Center -->
+  <path d="M 250 270 L 320 270" stroke="url(#coreGlow)" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="320,265 330,270 320,275" fill="#bc8cff"/>
+
+  <!-- Center: Skills08 Core Engine -->
+  <g transform="translate(330, 90)">
+    <rect width="280" height="360" rx="14" fill="url(#hubGrad)" stroke="url(#coreGlow)" stroke-width="2" filter="url(#shadow)"/>
+    <text x="140" y="36" text-anchor="middle" font-family="sans-serif" font-size="16px" font-weight="700" fill="#f0f6fc">2. SKILLS08 ENGINE</text>
+    <text x="140" y="54" text-anchor="middle" font-family="sans-serif" font-size="11px" fill="#58a6ff">Pure Standard-Library Lifecycle Manager</text>
+    <line x1="20" y1="68" x2="260" y2="68" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Engine Blocks -->
+    <g transform="translate(18, 82)">
+      <rect width="244" height="48" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="12" y="20" font-family="sans-serif" font-size="12px" font-weight="600" fill="#58a6ff">🛡️ Model A Security Gate</text>
+      <text x="12" y="36" font-family="sans-serif" font-size="10.5px" fill="#8b949e">Omits unvetted scripts &amp; background daemons</text>
+    </g>
+
+    <g transform="translate(18, 142)">
+      <rect width="244" height="48" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="12" y="20" font-family="sans-serif" font-size="12px" font-weight="600" fill="#bc8cff">⚡ SHA-256 Digest Verifier</text>
+      <text x="12" y="36" font-family="sans-serif" font-size="10.5px" fill="#8b949e">Detects modified, missing, &amp; extra files</text>
+    </g>
+
+    <g transform="translate(18, 202)">
+      <rect width="244" height="48" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="12" y="20" font-family="sans-serif" font-size="12px" font-weight="600" fill="#3fb950">🔒 Sandbox &amp; Containment</text>
+      <text x="12" y="36" font-family="sans-serif" font-size="10.5px" fill="#8b949e">Symlink, junction &amp; traversal defense</text>
+    </g>
+
+    <g transform="translate(18, 262)">
+      <rect width="244" height="74" rx="8" fill="#1f242c" stroke="#58a6ff" stroke-width="1.2"/>
+      <text x="12" y="20" font-family="sans-serif" font-size="12.5px" font-weight="700" fill="#f0f6fc">🔄 Universal Projection Bridge</text>
+      <text x="12" y="38" font-family="monospace" font-size="10px" fill="#38bdf8">skills08 sync / install --sync</text>
+      <text x="12" y="54" font-family="sans-serif" font-size="10px" fill="#8b949e">Preserves user rules via delimited blocks</text>
+      <text x="12" y="66" font-family="sans-serif" font-size="10px" fill="#7ee787">✓ Zero destruction guarantee</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow Center -> Right -->
+  <path d="M 610 270 L 680 270" stroke="url(#coreGlow)" stroke-width="3" stroke-dasharray="6,4"/>
+  <polygon points="680,265 690,270 680,275" fill="#3fb950"/>
+
+  <!-- Right: 7 Target Coding Agents -->
+  <g transform="translate(690, 100)">
+    <rect width="230" height="340" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="115" y="32" text-anchor="middle" class="card-title">3. AGENT PROJECTIONS</text>
+    <line x1="20" y1="46" x2="210" y2="46" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Agent Target Items -->
+    <g transform="translate(14, 58)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Google Antigravity</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">.agents/skills/</text>
+    </g>
+
+    <g transform="translate(14, 98)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Cursor IDE</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">.cursor/rules/</text>
+    </g>
+
+    <g transform="translate(14, 138)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Claude Code</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">CLAUDE.md</text>
+    </g>
+
+    <g transform="translate(14, 178)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">GitHub Copilot</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">.github/copilot</text>
+    </g>
+
+    <g transform="translate(14, 218)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Windsurf</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">.windsurfrules</text>
+    </g>
+
+    <g transform="translate(14, 258)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Cline / Roo Code</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">.clinerules</text>
+    </g>
+
+    <g transform="translate(14, 298)">
+      <rect width="202" height="34" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <text x="10" y="21" font-family="sans-serif" font-size="11px" font-weight="600" fill="#f0f6fc">Gemini CLI</text>
+      <text x="192" y="21" text-anchor="end" class="card-desc">GEMINI.md</text>
+    </g>
+  </g>
+</svg>

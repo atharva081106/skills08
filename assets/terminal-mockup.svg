@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1017"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#30363d"/>
+      <stop offset="50%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#238636"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .terminal-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }
+    .code-prompt { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 13.5px; fill: #58a6ff; font-weight: 600; }
+    .code-cmd { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 13.5px; fill: #f0f6fc; font-weight: 500; }
+    .code-dim { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 12.5px; fill: #8b949e; }
+    .code-success { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 12.5px; fill: #3fb950; font-weight: 600; }
+    .code-cyan { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 12.5px; fill: #38bdf8; }
+    .code-purple { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 12.5px; fill: #bc8cff; font-weight: 600; }
+    .code-yellow { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 12.5px; fill: #d29922; }
+    .agent-pill { font-family: "JetBrains Mono", "Fira Code", Consolas, "SF Mono", monospace; font-size: 11.5px; fill: #7ee787; }
+  </style>
+
+  <!-- Window Container with Gradient Border -->
+  <rect x="2" y="2" width="896" height="476" rx="12" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="1.5" />
+
+  <!-- Header Bar -->
+  <path d="M 2 14 C 2 7.37 7.37 2 14 2 L 886 2 C 892.63 2 898 7.37 898 14 L 898 42 L 2 42 Z" fill="#161b22" />
+  <line x1="2" y1="42" x2="898" y2="42" stroke="#30363d" stroke-width="1" />
+
+  <!-- Window Buttons -->
+  <circle cx="24" cy="22" r="6" fill="#ff5f56" />
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e" />
+  <circle cx="64" cy="22" r="6" fill="#27c93f" />
+
+  <!-- Window Title -->
+  <text x="450" y="26" text-anchor="middle" class="terminal-title">skills08 — zsh — 900×480</text>
+
+  <!-- Terminal Content -->
+  <g transform="translate(26, 75)">
+    <!-- Command Line -->
+    <text x="0" y="0">
+      <tspan class="code-prompt">➜  my-project </tspan>
+      <tspan class="code-cmd">skills08 install understand-anything --sync</tspan>
+    </text>
+
+    <!-- Execution Status -->
+    <text x="0" y="32">
+      <tspan class="code-dim">Resolving package </tspan>
+      <tspan class="code-cmd">"understand-anything"</tspan>
+      <tspan class="code-dim"> from local vetted manifest...</tspan>
+    </text>
+
+    <text x="0" y="60">
+      <tspan class="code-success">[✓]</tspan>
+      <tspan class="code-cmd"> SHA-256 digest integrity verified </tspan>
+      <tspan class="code-dim">(bb70fdb0489f8839ce55bf99dae0125ea067f712)</tspan>
+    </text>
+
+    <text x="0" y="86">
+      <tspan class="code-success">[✓]</tspan>
+      <tspan class="code-cyan"> Model A Operational Sandbox:</tspan>
+      <tspan class="code-dim"> 41 markdown playbooks cleared (0 daemon scripts)</tspan>
+    </text>
+
+    <text x="0" y="112">
+      <tspan class="code-success">[✓]</tspan>
+      <tspan class="code-cmd"> Installed to </tspan>
+      <tspan class="code-yellow">.agents/skills/understand-anything/</tspan>
+      <tspan class="code-dim"> (project scope)</tspan>
+    </text>
+
+    <!-- Multi-Agent Projection Header -->
+    <text x="0" y="148">
+      <tspan class="code-purple">[⚡] Universal Multi-Agent Bridge Active</tspan>
+      <tspan class="code-dim"> — Projecting to coding agents:</tspan>
+    </text>
+
+    <!-- Projections -->
+    <text x="24" y="176">
+      <tspan class="code-dim">├─ Google Antigravity </tspan>
+      <tspan class="agent-pill">.agents/skills/understand-anything/SKILL.md</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="202">
+      <tspan class="code-dim">├─ Cursor IDE ........ </tspan>
+      <tspan class="agent-pill">.cursor/rules/understand-anything.mdc</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="228">
+      <tspan class="code-dim">├─ Claude Code ....... </tspan>
+      <tspan class="agent-pill">.claude/skills/ + CLAUDE.md</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="254">
+      <tspan class="code-dim">├─ GitHub Copilot .... </tspan>
+      <tspan class="agent-pill">.github/copilot-instructions.md</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="280">
+      <tspan class="code-dim">├─ Windsurf .......... </tspan>
+      <tspan class="agent-pill">.windsurfrules</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="306">
+      <tspan class="code-dim">├─ Cline / Roo Code .. </tspan>
+      <tspan class="agent-pill">.clinerules</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <text x="24" y="332">
+      <tspan class="code-dim">└─ Gemini CLI ........ </tspan>
+      <tspan class="agent-pill">GEMINI.md</tspan>
+      <tspan class="code-success"> [✓ SYNCED]</tspan>
+    </text>
+
+    <!-- Completion Banner -->
+    <text x="0" y="368">
+      <tspan class="code-success">✔ Installed 1 skill &amp; projected across 7 coding agents in 18ms!</tspan>
+    </text>
+  </g>
+</svg>

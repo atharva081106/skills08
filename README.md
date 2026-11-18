@@ -1,13 +1,8 @@
 <div align="center">
 
-```text
- ███████╗██╗  ██╗██╗██╗     ██╗     ███████╗ ██████╗  ██████╗ 
- ██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝██╔═████╗██╔════╝ 
- ███████╗█████╔╝ ██║██║     ██║     ███████╗██║██╔██║╚█████╗  
- ╚════██║██╔═██╗ ██║██║     ██║     ╚════██║████╔╝██║ ╚═══██╗ 
- ███████║██║  ██╗██║███████╗███████╗███████║╚██████╔╝██████╔╝ 
- ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝  
-```
+<p align="center">
+  <img src="./assets/hero-banner.jpg" alt="Skills08 — Universal Package Manager for AI Agent Skills" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</p>
 
 # ⚡ Skills08
 
@@ -20,7 +15,7 @@
 [![CI](https://github.com/atharva081106/skills08/actions/workflows/ci.yml/badge.svg)](https://github.com/atharva081106/skills08/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/tests-51%20passing%20%28100%25%29-brightgreen.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat-square)](https://github.com/atharva081106/skills08)
-[![Python](https://img.shields.io/badge/python-3.8%20%7C%203.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-3776AB.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg?style=flat-square)](https://github.com/atharva081106/skills08)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-zero%20third--party-orange.svg?style=flat-square)](https://github.com/atharva081106/skills08)
@@ -62,21 +57,9 @@
 
 </div>
 
-```text
-  $ skills08 search "understand"
-  ┌─────────────────┬─────────────────────┬────────────────────────────┬───────────────────────┐
-  │ Candidate ID    │ Skill Name          │ Category                   │ Tier                  │
-  ├─────────────────┼─────────────────────┼────────────────────────────┼───────────────────────┤
-  │ SKILL08-ARC-002 │ understand-anything │ Architecture Intelligence  │ Community / Extension │
-  └─────────────────┴─────────────────────┴────────────────────────────┴───────────────────────┘
-
-  $ skills08 install understand-anything --sync -w ./my-app
-  [OK] Successfully installed 'understand-anything' to .agents/skills/understand-anything/
-  [SYNC] Projected to Cursor (.cursor/rules/understand-anything.mdc), Claude (CLAUDE.md), Copilot, and Windsurf!
-
-  $ skills08 verify -w ./my-app
-  [PASS] 43/43 files verified identical against SHA-256 digests.
-```
+<p align="center">
+  <img src="./assets/terminal-mockup.svg" alt="Skills08 CLI Terminal Execution" width="100%" />
+</p>
 
 ---
 
@@ -95,6 +78,12 @@ Modern AI coding agents are only as smart as the prompt instructions and runbook
 | **🎯 Workspace Targeting** | ❌ Manual file copying across folders | ✅ **Direct any command to any repo via `-w / --workspace-root`** |
 | **🧭 Real-Time Conflict Detection** | ❌ Silent duplicate names & persona overlap | ✅ **Static analysis detects collisions, shadows, and slop (`conflicts`)** |
 | **🚀 Runtime Footprint** | ⚠️ Heavy Node/npm/Python dependencies | ✅ **Zero third-party runtime dependencies (Pure Python stdlib)** |
+
+<br/>
+
+<p align="center">
+  <img src="./assets/features-cards.svg" alt="Skills08 Core Pillars" width="100%" />
+</p>
 
 ---
 
@@ -151,18 +140,9 @@ Engineered entirely with Python's standard library (with pure-Python fallback YA
 
 Skills08 automatically projects installed skills into the native discovery formats required by every major coding agent:
 
-```mermaid
-flowchart TD
-    S08["<b>Skills08 Lifecycle Manager</b>"] -->|"skills08 install &lt;skill&gt; --sync"| CORE[".agents/skills/&lt;skill&gt;/SKILL.md"]
-    CORE --> AGY["<b>Google Antigravity</b><br/><code>.agents/skills/</code>"]
-    CORE --> CUR["<b>Cursor IDE</b><br/><code>.cursor/rules/&lt;skill&gt;.mdc</code><br/><code>.cursorrules</code>"]
-    CORE --> CLD["<b>Claude Code</b><br/><code>CLAUDE.md</code><br/><code>.claude/skills/</code>"]
-    CORE --> COP["<b>GitHub Copilot</b><br/><code>.github/copilot-instructions.md</code>"]
-    CORE --> WND["<b>Windsurf</b><br/><code>.windsurfrules</code>"]
-    CORE --> CLN["<b>Cline / Roo Code</b><br/><code>.clinerules</code>"]
-    CORE --> GEM["<b>Gemini CLI</b><br/><code>GEMINI.md</code>"]
-    CORE --> OPN["<b>Universal Agents</b><br/><code>AGENTS.md</code>"]
-```
+<p align="center">
+  <img src="./assets/architecture-diagram.svg" alt="Skills08 Universal Multi-Agent Projection Architecture" width="100%" />
+</p>
 
 ### Supported IDE & Agent Matrix
 
